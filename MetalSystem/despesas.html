@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Lateral</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="sidebar">
+        <img src="img/logotipo.png" alt="Logotipo">
+        <ul class="list">
+            <li>
+                <a href="#">
+                    <i class="bi bi-house-door icons"></i>
+                    Início
+                </a>
+            </li>
+            <p class="word">Operacional</p>
+            <li>
+                <a href="#">
+                    <i class="bi bi-people icons"></i>
+                    Clientes
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="bi bi-file-earmark-spreadsheet icons"></i>
+                    Orçamentos
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="bi bi-file-earmark-text icons"></i>
+                    Documentos
+                </a>
+            </li>
+            <p class="word">Financeiro</p>
+            <li>
+                <a href="#">
+                    <i class="bi bi-file-earmark-diff icons"></i>
+                    Entradas e Saídas
+                </a>
+            </li>
+            <li>
+                <a href="despesas.html">
+                    <i class="bi bi-credit-card icons"></i>
+                    Despesas
+                </a>
+            </li>
+            <li>
+                <a href="relatorio.html">
+                    <i class="bi bi-cash-coin icons"></i>
+                    Relatório
+                </a>
+            </li>
+            <li class="divisor"></li>
+            <li>
+                <a href="#">
+                    <i class="bi bi-box-arrow-right icons"></i>
+                    Sair
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <header>
+            <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search" />
+        </header>
+        <h1 class="main-title">Despesas</h1>
+        <section class="content">
+            <section class="card-despesas">
+                <div class="card-despesas-elementos">
+                    <h2>Total de despesas</h2>
+                    <p>R$ <span id="valor-total-despesas">20.000,00</span></p>
+                </div>
+            </section>
+            <section class="painel-despesas">
+                <div class="painel-cards">
+                    <div class="card">
+                        <div class="info-card">
+                            <div class="info-despesas">
+                                <h2>Funcionários</h2>
+                                <p>R$ <span id="despesa-total-funcionario">7.000,00</span></p>
+                            </div>
+                            <h3 class="status-despesa">
+                                <span id="status-despesas-funcionario" class="status-pendente">Pendente</span>
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="info-card">
+                            <div class="info-despesas">
+                                <h2>Manutenção e Ferramentas</h2>
+                                <p>R$ <span id="despesa-total-manutencao">1.500,00</span></p>
+                            </div>
+                            <h3 class="status-despesa">
+                                <span id="status-despesas-manutencao" class="status-pendente">Pendente</span>
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="info-card">
+                            <div class="info-despesas">
+                                <h2>Materiais</h2>
+                                <p>R$ <span id="despesa-total-materiais">7.000,00</span></p>
+                            </div>
+                            <h3 class="status-despesa">
+                                <span id="status-despesas-materiais" class="status-pendente">Pendente</span>
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="info-card">
+                            <div class="info-despesas">
+                                <h2>Logística e Frota</h2>
+                                <p>R$ <span id="despesa-total-logistica">2.000,00</span></p>
+                            </div>
+                            <h3 class="status-despesa">
+                                <span id="status-despesas-logistica" class="status-pendente">Pendente</span>
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="info-card">
+                            <div class="info-despesas">
+                                <h2>Contas</h2>
+                                <p>R$ <span id="despesa-total-contas">1.000,00</span></p>
+                            </div>
+                            <h3 class="status-despesa">
+                                <span id="status-despesas-contas" class="status-pendente">Pendente</span>
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="info-card">
+                            <div class="info-despesas">
+                                <h2>Impostos e Taxas</h2>
+                                <p>R$ <span id="despesa-total-impostos">1.500,00</span></p>
+                            </div>
+                            <h3 class="status-despesa">
+                                <span id="status-despesas-impostos" class="status-pendente">Pendente</span>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="painel-grafico">
+                    <div class="espaco-grafico">
+                        <div>
+                            <h3 class="titulo-grafico">Despesas por categoria</h3>
+                            <div class="pizza"></div>
+                        </div>
+                        <div>
+                            <div class="legenda-grafico">
+                                <div class="item-legenda">
+                                    <div class="estilo-quadrado" style="background-color: #003f5c;"></div>
+                                    <span>Funcionários</span>
+                                </div>
+                                <div class="item-legenda">
+                                    <div class="estilo-quadrado" style="background-color: #005d71;"></div>
+                                    <span>Materiais</span>
+                                </div>
+                                <div class="item-legenda">
+                                    <div class="estilo-quadrado" style="background-color: #007d67;"></div>
+                                    <span>Contas</span>
+                                </div>
+                                <div class="item-legenda">
+                                    <div class="estilo-quadrado" style="background-color: #1a983f;"></div>
+                                    <span>Manutenção e ferramentas</span>
+                                </div>
+                                <div class="item-legenda">
+                                    <div class="estilo-quadrado" style="background-color: #92a800;"></div>
+                                    <span>Logistica e frota</span>
+                                </div>
+                                <div class="item-legenda">
+                                    <div class="estilo-quadrado" style="background-color: #ffa600;"></div>
+                                    <span>Impostos e taxas</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
