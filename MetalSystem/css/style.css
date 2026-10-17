@@ -10,6 +10,17 @@ body {
     background-color: #e2e2e2;
 }
 
+main {
+    flex: 1;
+    padding: 0;
+    margin-left: 250px;
+}
+
+header {
+    background-color: #eeeeee;
+    padding: 8px 8px 8px 20px;
+}
+
 /****************************************************************************************************/
 .sidebar {
     width: 250px;
@@ -80,18 +91,6 @@ body {
 }
 
 /****************************************************************************************************/
-main {
-    flex: 1;
-    padding: 0;
-    margin-left: 250px;
-}
-
-/****************************************************************************************************/
-header {
-    background-color: #eeeeee;
-    padding: 8px 8px 8px 20px;
-}
-
 .form-control {
     width: 250px;
     border-radius: 4px;
@@ -116,7 +115,7 @@ header {
     margin: 15px 0;
 }
 
-/**************************************/
+/*********************************************despesas***********************************************/
 .card-despesas {
     background-color: #c0c0c0;
     border: solid 1px #606060;
