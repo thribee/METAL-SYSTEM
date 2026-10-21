@@ -1,0 +1,157 @@
+.card-despesas {
+    background-color: #c0c0c0;
+    border: solid 1px #606060;
+    border-radius: 4px;
+    margin: 12px 0;
+    height: 85px;
+}
+
+.card-despesas-elementos {
+    padding: 5px 20px;
+    color: #000000;
+}
+
+.card-despesas-elementos h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.card-despesas-elementos p {
+    font-size: 28px;
+    margin: 0;
+}
+
+/**************************************/
+.painel-despesas {
+    background-color: #f2f2f2;
+    margin: 25px 0;
+    border-radius: 4px;
+    border: solid 0.5px #bbbbbb;
+    padding: 25px;
+}
+
+.painel-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/*****************/
+.card {
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 4px;
+    border: solid 0.5px #606060;
+    padding: 5px 15px;
+}
+
+.info-card {
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-despesas {
+    width: 170px;
+}
+
+.info-despesas h2 {
+    font-size: 24px;
+    margin-bottom: 40px;
+    height: 50px;
+}
+
+.info-despesas p {
+    font-size: 24px;
+    margin: 0 0 5px;
+}
+
+.info-status-despesa {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+/*****************/
+.status-despesa{
+    font-size: 20px;
+    border-radius: 4px;
+    padding: 4px 10px;
+    margin: 0;
+}
+
+.status-pago {
+    background-color: #C2FFC8;
+    color: #00600A;
+}
+
+.status-vencido {
+    background-color: #FFDDDA;
+    color: #D91100;
+}
+
+.status-pendente {
+    background-color: #FFEBCC;
+    color: #D96500;
+}
+
+/*****************/
+.painel-grafico{
+    padding-top: 25px;
+}
+
+.espaco-grafico {
+    background-color: #ffffff;
+    padding: 15px;
+    border: 0.5px solid #606060;
+    border-radius: 4px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    gap: 180px;
+}
+
+.titulo-grafico {
+    text-align: left;
+    color: #000000;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.pizza {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: 20px;
+    background: conic-gradient(#003f5c 0% 35%,
+            #005d71 35% 70%,
+            #007d67 70% 75%,
+            #1a983f 75% 82.5%,
+            #92a800 82.5% 92.5%,
+            #ffa600 92.5% 100%);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.300);
+}
+
+.legenda-grafico {
+    justify-content: center;
+    gap: 15px;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+.item-legenda {
+    width: 280px;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    color: #000000;
+    margin: 12px;
+}
+
+.estilo-quadrado {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+    border-radius: 3px;
+}
