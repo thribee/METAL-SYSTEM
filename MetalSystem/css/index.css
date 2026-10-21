@@ -1,0 +1,122 @@
+/* =====================================================
+   VALORES DO FIGMA: ajuste só aqui, no topo do arquivo
+   ===================================================== */
+:root {
+  /* Cores */
+  --fundo-pagina: #0E0E0E;     /* fundo preto atrás do cartão */
+  --fundo-painel: #2B2B2B;     /* painel cinza escuro do formulário */
+  --laranja: #F97316;          /* botão Entrar e detalhes */
+  --laranja-hover: #EA6A0A;
+  --texto: #FFFFFF;
+  --texto-suave: #A3A3A3;      /* slogan, subtítulo, placeholder */
+  --fundo-campo: #3A3A3A;
+  --borda-campo: #4F4F4F;
+  --erro: #F87171;
+
+  /* Tamanhos */
+  --largura-cartao: 1000px;
+  --altura-cartao: 600px;
+  --largura-imagem: 38%;       /* parte da largura que a foto ocupa */
+  --largura-form: 340px;
+  --logo-largura: 180px;
+
+  /* Texto */
+  --fonte: 'Inter', sans-serif;
+  --tam-titulo: 28px;
+  --tam-texto: 14px;
+
+  /* Cantos retos, como no projeto */
+  --raio: 0;
+}
+
+/* ---------- Base ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--fonte);
+  font-size: var(--tam-texto);
+  background: var(--fundo-pagina);
+  color: var(--texto);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+/* ---------- Cartão (imagem + painel) ---------- */
+.login {
+  display: flex;
+  width: 100%;
+  max-width: var(--largura-cartao);
+  min-height: var(--altura-cartao);
+}
+
+/* ---------- Parte 1: imagem ---------- */
+.login__imagem { flex: 0 0 var(--largura-imagem); }
+.login__imagem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;           /* a foto preenche sem distorcer */
+  display: block;
+}
+
+/* ---------- Parte 2: painel ---------- */
+.login__painel {
+  flex: 1;
+  background: var(--fundo-painel);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 48px 32px;
+}
+
+/* 2.1 Logo + slogan */
+.login__marca { text-align: center; }
+.login__logo { width: var(--logo-largura); height: auto; display: block; margin: 0 auto 8px; }
+.login__slogan { color: var(--texto-suave); font-size: 13px; }
+
+/* 2.2 Formulário */
+.login__form { width: 100%; max-width: var(--largura-form); }
+.login__titulo { font-size: var(--tam-titulo); font-weight: 700; }
+.login__subtitulo { color: var(--texto-suave); margin: 4px 0 24px; }
+
+.campo { margin-bottom: 16px; }
+.campo label { display: block; font-size: 12px; font-weight: 600; margin-bottom: 6px; }
+.campo input {
+  width: 100%;
+  padding: 12px 14px;
+  background: var(--fundo-campo);
+  border: 1px solid var(--borda-campo);
+  border-radius: var(--raio);
+  color: var(--texto);
+  font: inherit;
+}
+.campo input::placeholder { color: var(--texto-suave); }
+.campo input:focus { outline: 2px solid var(--laranja); outline-offset: 0; border-color: var(--laranja); }
+
+.login__erro { color: var(--erro); font-size: 13px; margin-bottom: 12px; }
+
+.botao {
+  width: 100%;
+  margin-top: 8px;
+  padding: 13px;
+  background: var(--laranja);
+  color: var(--texto);
+  border: 0;
+  border-radius: var(--raio);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.botao:hover { background: var(--laranja-hover); }
+.botao:focus-visible { outline: 2px solid var(--texto); outline-offset: 2px; }
+
+/* ---------- Celular: esconde a foto ---------- */
+@media (max-width: 760px) {
+  body { padding: 0; }
+  .login { min-height: 100vh; }
+  .login__imagem { display: none; }
+}

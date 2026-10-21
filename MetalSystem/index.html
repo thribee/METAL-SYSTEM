@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Metal System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+  <main class="login">
+
+    <!-- PARTE 1: imagem do soldador (lado esquerdo) -->
+    <section class="login__imagem" aria-hidden="true">
+      <img src="img/index.png" alt="">
+    </section>
+
+    <!-- PARTE 2: painel escuro (lado direito) -->
+    <section class="login__painel">
+
+      <!-- 2.1 Logo + slogan -->
+      <header class="login__marca">
+        <img class="login__logo" src="img/logo.png" alt="Metal System">
+        <p class="login__slogan">Sua serralheria mais organizada</p>
+      </header>
+
+      <!-- 2.2 Formulário -->
+      <form class="login__form" id="formLogin">
+        <h1 class="login__titulo">Bem-vindo!</h1>
+        <p class="login__subtitulo">Faça login para acessar o sistema</p>
+
+        <div class="campo">
+          <label for="usuario">Usuário</label>
+          <input type="text" id="usuario" name="usuario" placeholder="Digite seu usuário" autocomplete="username" required>
+        </div>
+
+        <div class="campo">
+          <label for="senha">Senha</label>
+          <input type="password" id="senha" name="senha" placeholder="Digite sua senha" autocomplete="current-password" required>
+        </div>
+
+        <p class="login__erro" id="erro" role="alert" hidden>Usuário ou senha incorretos.</p>
+
+        <button type="submit" class="botao"> <a href="inicio.html">Entrar</a></button>
+    
+      </form>
+
+    </section>
+  </main>
+
+  <script src="js/index.js"></script>
+</body>
+</html>
