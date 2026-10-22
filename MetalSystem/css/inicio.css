@@ -1,0 +1,232 @@
+/* =========================================================
+   INICIO.CSS: estilos que só valem na tela inicial.
+   Segue o padrão do grupo: tudo dentro de .pag-inicio (a classe do <body>),
+   assim nenhuma regra "vaza" para as outras páginas.
+
+   Aqui usamos CSS aninhado: regras escritas DENTRO de .pag-inicio { }
+   ganham automaticamente o prefixo ".pag-inicio". Funciona em Chrome,
+   Edge, Firefox e Safari de 2023 em diante. O símbolo "&" = ".pag-inicio".
+   ========================================================= */
+
+.pag-inicio {
+
+    /* Variáveis só desta página. As cores seguem as do grupo (laranja #ff7800). */
+    --laranja: #ff7800;
+    --laranja-hover: #e56c00;
+    --verde: #1b7a1b;
+    --vermelho: #d91100;
+    --ambar: #b45309;
+    --texto-suave: #555555;
+    --borda: #cccccc;
+    --suave: #f2f2f2;
+
+    /* ---------- Barra superior (mesmo padrão do orçamentos.css) ---------- */
+    & header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-right: 25px;
+    }
+    .topo-direita { display: flex; align-items: center; gap: 16px; }
+    .data-hoje { font-size: 13px; color: var(--texto-suave); }
+
+    .icone-btn {
+        position: relative;
+        border: 0;
+        background: none;
+        padding: 4px 6px;
+        font-size: 22px;
+        color: var(--texto-suave);
+    }
+    .icone-btn:hover { color: var(--laranja); }
+    .ponto { position: absolute; top: 3px; right: 3px; width: 8px; height: 8px; background: var(--laranja); }
+
+    .usuario {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border: 0;
+        background: none;
+        text-align: left;
+        line-height: 1.2;
+    }
+    .avatar-usuario {
+        width: 34px;
+        height: 34px;
+        display: grid;
+        place-items: center;       /* centraliza a letra */
+        background-color: var(--laranja);
+        color: #ffffff;
+        font-weight: 700;
+        font-size: 18px;
+    }
+    .usuario-texto strong { display: block; font-size: 14px; }
+    .usuario-texto small { font-size: 12px; color: var(--texto-suave); }
+
+    /* Caixas que abrem ao clicar no sino e no usuário */
+    .menu-suspenso { position: relative; }
+    .suspenso {
+        position: absolute;
+        right: 0;
+        top: calc(100% + 10px);
+        width: 280px;
+        z-index: 20;
+        background: #ffffff;
+        border: 1px solid var(--borda);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, .18);
+    }
+    .suspenso[hidden] { display: none; }
+    .suspenso a {
+        display: flex;
+        justify-content: space-between;
+        padding: 12px 16px;
+        border-bottom: 1px solid #e3e3e3;
+        color: #222222;
+        text-decoration: none;
+    }
+    .suspenso a:last-child { border-bottom: 0; }
+    .suspenso a:hover { background: var(--suave); }
+    .suspenso-titulo {
+        padding: 10px 16px;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: var(--texto-suave);
+        background: var(--suave);
+        border-bottom: 1px solid var(--borda);
+    }
+
+    /* ---------- Título e subtítulo ---------- */
+    .subtitulo { padding: 0 40px; margin: -8px 0 0; color: var(--texto-suave); }
+    .destaque { color: var(--laranja); }
+    .bom { color: var(--verde); }
+    .ruim { color: var(--vermelho); }
+    .alerta { color: var(--ambar); }
+
+    /* ---------- Cards de números ---------- */
+    /* auto-fit + minmax: tantos cards quantos couberem, mínimo 170px cada */
+    .kpis {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+        gap: 14px;
+        margin-bottom: 20px;
+    }
+    .kpi {
+        padding: 14px 16px;
+        background: #ffffff;
+        border: 0.5px solid #606060;
+        border-top: 3px solid var(--laranja);
+    }
+    .kpi-rotulo {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: .05em;
+        color: var(--texto-suave);
+    }
+    .kpi-rotulo i { font-size: 18px; color: var(--laranja); }
+    .kpi-valor { margin: 4px 0; font-size: 24px; font-weight: 700; }
+    .kpi-destaque { color: var(--laranja); }
+    .kpi-variacao { font-size: 13px; color: var(--texto-suave); }
+
+    /* ---------- Ações rápidas ---------- */
+    .acoes { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+    .btn-acao {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border: 1px solid var(--laranja);
+        background: transparent;
+        color: var(--laranja);
+        font-weight: 600;
+        text-decoration: none;
+    }
+    .btn-acao:hover { background: var(--laranja); color: #ffffff; }
+
+    /* ---------- Duas colunas ---------- */
+    .grade { display: grid; grid-template-columns: 1.2fr 1fr; gap: 18px; align-items: start; }
+    .coluna { display: flex; flex-direction: column; gap: 18px; }
+
+    /* ---------- Painéis ---------- */
+    .painel { background: #ffffff; border: 0.5px solid #606060; }
+    .painel-topo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 16px;
+        background: var(--suave);
+        border-bottom: 1px solid var(--borda);
+        font-weight: 600;
+    }
+    .link-laranja { color: var(--laranja); font-size: 13px; font-weight: 600; text-decoration: none; }
+
+    /* Faixa de números pequenos */
+    .mini { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid var(--borda); }
+    .mini-2 { grid-template-columns: repeat(2, 1fr); }
+    .mini > div { padding: 12px 16px; border-right: 1px solid var(--borda); }
+    .mini > div:last-child { border-right: 0; }
+    .mini small { display: block; font-size: 12px; text-transform: uppercase; color: var(--texto-suave); }
+    .mini strong { font-size: 17px; }
+
+    /* ---------- Tabela ---------- */
+    .tabela-wrap { overflow-x: auto; }
+    .tabela-inicio { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .tabela-inicio th {
+        padding: 10px 16px;
+        text-align: left;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: var(--texto-suave);
+        border-bottom: 1px solid var(--borda);
+    }
+    .tabela-inicio td { padding: 12px 16px; border-bottom: 1px solid #e3e3e3; white-space: nowrap; }
+    .tabela-inicio tr:last-child td { border-bottom: 0; }
+    .tabela-inicio tbody tr:hover td { background: #f7f7f7; }
+    .iniciais {
+        display: inline-grid;
+        place-items: center;
+        width: 28px;
+        height: 28px;
+        margin-right: 10px;
+        background: #5f5f5f;
+        color: #ffffff;
+        font-size: 12px;
+        font-weight: 700;
+        vertical-align: middle;
+    }
+
+    /* ---------- Gráfico de barras ---------- */
+    .grafico-titulo { margin: 0; padding: 14px 16px 0; font-size: 13px; font-weight: 600; text-transform: uppercase; color: var(--texto-suave); }
+    .grafico { display: flex; align-items: flex-end; gap: 10px; height: 180px; padding: 16px; }
+    .grafico-dia { flex: 1; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; }
+    .grafico-barras { flex: 1; display: flex; align-items: flex-end; gap: 2px; }
+    .grafico-barras span { flex: 1; }          /* a altura de cada barra vem do JS */
+    .grafico-dia small { margin-top: 6px; text-align: center; font-size: 11px; color: var(--texto-suave); }
+    .barra-entrada { background: var(--laranja); }
+    .barra-saida { background: #5f5f5f; }
+    .barra-despesa { background: #bdbdbd; }
+    .legenda { display: flex; gap: 16px; padding: 0 16px 14px; font-size: 13px; color: var(--texto-suave); }
+    .legenda i { display: inline-block; width: 10px; height: 10px; margin-right: 6px; }
+
+    /* ---------- Precisa de atenção ---------- */
+    .atencao a {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 16px;
+        border-bottom: 1px solid #e3e3e3;
+        color: #222222;
+        text-decoration: none;
+    }
+    .atencao a:last-child { border-bottom: 0; }
+    .atencao a:hover { background: var(--suave); }
+    .atencao i, .suspenso i { color: var(--laranja); }
+
+    /* ---------- Telas menores ---------- */
+    @media (max-width: 1100px) { .grade { grid-template-columns: 1fr; } }
+    @media (max-width: 800px) { .data-hoje, .usuario-texto { display: none; } }
+}
