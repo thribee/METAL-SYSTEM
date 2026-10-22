@@ -4,14 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu Lateral</title>
+    <title>Início | Metal System</title>
+
+    <!-- Bootstrap e ícones: os mesmos que o grupo já usa -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- 1º o estilo comum do grupo (sidebar, header, títulos)... -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- 2º o estilo só desta página (tudo dentro de .pag-inicio) -->
+    <link rel="stylesheet" href="css/inicio.css">
 </head>
 
-<body>
+<!-- A classe "pag-inicio" no body é o que faz o inicio.css valer só nesta página -->
+<body class="pag-inicio">
+
+    <!-- ===== SIDEBAR: igual à do seu amigo, sem nenhuma mudança ===== -->
     <nav class="sidebar">
         <img src="img/logo.png" alt="Logotipo">
         <ul class="list">
@@ -35,7 +44,7 @@
                 </a>
             </li>
             <li>
-                <a href="documentos1.html">
+                <a href="documentos.html">
                     <i class="bi bi-file-earmark-text icons"></i>
                     Documentos
                 </a>
@@ -68,19 +77,146 @@
             </li>
         </ul>
     </nav>
+
     <main>
+        <!-- ===== BARRA SUPERIOR: busca à esquerda, avisos e usuário à direita ===== -->
         <header>
             <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search" />
+
+            <div class="topo-direita">
+                <!-- O JS escreve a data de hoje aqui -->
+                <span class="data-hoje" id="dataHoje"></span>
+
+                <!-- Sino: o JS preenche a lista de avisos dentro de #menuAvisos -->
+                <div class="menu-suspenso">
+                    <button class="icone-btn" id="btnAvisos" aria-label="Avisos">
+                        <i class="bi bi-bell"></i><span class="ponto"></span>
+                    </button>
+                    <div class="suspenso" id="menuAvisos" hidden></div>
+                </div>
+
+                <!-- Usuário: o JS escreve inicial, nome e empresa -->
+                <div class="menu-suspenso">
+                    <button class="usuario" id="btnUsuario" aria-label="Menu do usuário">
+                        <span class="avatar-usuario" id="avatar"></span>
+                        <span class="usuario-texto">
+                            <strong id="nomeUsuario"></strong>
+                            <small id="empresaUsuario"></small>
+                        </span>
+                    </button>
+                    <div class="suspenso" id="menuUsuario" hidden>
+                        <a href="#">Alterar senha</a>
+                        <a href="index.html">Sair</a>
+                    </div>
+                </div>
+            </div>
         </header>
-        <h1 class="main-title">Despesas</h1>
+
+        <!-- Título "Bom dia, Carlos" (escrito pelo JS) -->
+        <h1 class="main-title" id="saudacao"></h1>
+        <p class="subtitulo">Resumo das principais informações do seu negócio</p>
+
         <section class="content">
 
+            <!-- ===== Cards de números ===== -->
+            <div class="kpis">
+                <article class="kpi">
+                    <div class="kpi-rotulo">Clientes <i class="bi bi-people"></i></div>
+                    <div class="kpi-valor">120</div>
+                    <div class="kpi-variacao bom">+5 novos este mês</div>
+                </article>
+                <article class="kpi">
+                    <div class="kpi-rotulo">Entradas <i class="bi bi-graph-up-arrow"></i></div>
+                    <div class="kpi-valor">R$ 24.607,00</div>
+                    <div class="kpi-variacao bom">+12% vs. mês anterior</div>
+                </article>
+                <article class="kpi">
+                    <div class="kpi-rotulo">Saídas <i class="bi bi-graph-down-arrow"></i></div>
+                    <div class="kpi-valor">R$ 11.506,00</div>
+                    <div class="kpi-variacao">+8% vs. mês anterior</div>
+                </article>
+                <article class="kpi">
+                    <div class="kpi-rotulo">Despesas <i class="bi bi-wallet2"></i></div>
+                    <div class="kpi-valor">R$ 3.400,00</div>
+                    <!-- Despesa caindo é bom, por isso verde -->
+                    <div class="kpi-variacao bom">−6% vs. mês anterior</div>
+                </article>
+                <article class="kpi">
+                    <div class="kpi-rotulo">Lucro <i class="bi bi-currency-dollar"></i></div>
+                    <div class="kpi-valor kpi-destaque">R$ 5.400,00</div>
+                    <div class="kpi-variacao bom">+5% vs. mês anterior</div>
+                </article>
+            </div>
+
+            <!-- ===== Ações rápidas ===== -->
+            <div class="acoes">
+                <a class="btn-acao" href="orcamentos.html"><i class="bi bi-plus-lg"></i> Novo orçamento</a>
+                <a class="btn-acao" href="clientes.html"><i class="bi bi-plus-lg"></i> Novo cliente</a>
+                <a class="btn-acao" href="documentos.html"><i class="bi bi-plus-lg"></i> Nova nota fiscal</a>
+            </div>
+
+            <!-- ===== Duas colunas ===== -->
+            <div class="grade">
+
+                <!-- Esquerda: Resumo de Clientes -->
+                <section class="painel">
+                    <div class="painel-topo">
+                        <span>Resumo de Clientes</span>
+                        <a class="link-laranja" href="clientes.html">Ver Clientes →</a>
+                    </div>
+                    <div class="mini mini-2">
+                        <div><small>Total de clientes</small><strong>125</strong></div>
+                        <div><small>Novos este mês</small><strong>5</strong></div>
+                    </div>
+                    <div class="tabela-wrap">
+                        <table class="tabela-inicio">
+                            <thead><tr><th>Nome</th><th>Telefone</th><th>Cadastro</th></tr></thead>
+                            <!-- O JS cria as linhas aqui -->
+                            <tbody id="tabelaClientes"></tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Direita -->
+                <div class="coluna">
+                    <section class="painel">
+                        <div class="painel-topo">
+                            <span>Resumo de Controle</span>
+                            <a class="link-laranja" href="entradas_saidas.html">Ver Controle →</a>
+                        </div>
+                        <div class="mini">
+                            <div><small>Entradas</small><strong class="bom">R$ 24.607</strong></div>
+                            <div><small>Saídas</small><strong class="ruim">R$ 11.506</strong></div>
+                            <div><small>Despesas</small><strong class="alerta">R$ 3.400</strong></div>
+                            <div><small>Lucro</small><strong class="destaque">R$ 5.400</strong></div>
+                        </div>
+                        <h2 class="grafico-titulo">Movimentações — últimos 7 dias</h2>
+                        <!-- O JS desenha as barras aqui -->
+                        <div class="grafico" id="grafico"></div>
+                        <div class="legenda">
+                            <span><i class="barra-entrada"></i>Entrada</span>
+                            <span><i class="barra-saida"></i>Saída</span>
+                            <span><i class="barra-despesa"></i>Despesa</span>
+                        </div>
+                    </section>
+
+                    <section class="painel">
+                        <div class="painel-topo"><span>Precisa de atenção</span></div>
+                        <!-- O JS escreve os avisos aqui -->
+                        <div class="atencao" id="painelAvisos"></div>
+                    </section>
+                </div>
+            </div>
         </section>
     </main>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
+    <!-- script.js (do seu amigo): pinta de laranja o item do menu da página atual -->
     <script src="js/script.js"></script>
+    <!-- inicio.js: preenche esta tela -->
+    <script src="js/inicio.js"></script>
 </body>
 
 </html>
