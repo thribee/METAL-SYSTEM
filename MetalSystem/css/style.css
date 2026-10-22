@@ -13,7 +13,7 @@ body {
 main {
     flex: 1;
     padding: 0;
-    margin-left: 250px;
+    margin-left: 150px;
 }
 
 header {
@@ -114,3 +114,5 @@ header {
     padding: 0px 40px;
     margin: 15px 0;
 }
+
+

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +8,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/orcamentos.css">
+    <link rel="stylesheet" href="css/orçamentos.css">
 </head>
+
 <body class="pag-orcamentos">
 
     <nav class="sidebar">
-        <img src="img/logotipo.png" alt="Logotipo">
+        <img src="img/logo.png" alt="Logotipo">
         <ul class="list">
             <li>
                 <a href="inicio.html">
@@ -34,7 +36,7 @@
                 </a>
             </li>
             <li>
-                <a href="documentos.html">
+                <a href="documentos1.html">
                     <i class="bi bi-file-earmark-text icons"></i>
                     Documentos
                 </a>
@@ -80,119 +82,306 @@
             </div>
         </header>
 
-        <h1 class="main-title">Orçamentos</h1>
+        <div id="tela-lista">
+            <h1 class="main-title">Orçamentos</h1>
 
-        <div class="content">
-            <p class="subtitulo">Gerencie os orçamentos da sua serralheria</p>
-            <button class="btn-novo">+ Novo Orçamento</button>
+            <div class="content">
+                <p class="subtitulo">Gerencie os orçamentos da sua serralheria</p>
+                <button class="btn-novo" id="btn-novo">+ Novo Orçamento</button>
 
-            <section class="resumo">
-                <div class="card-resumo">
-                    <small>Total em aberto</small>
-                    <h2>R$ 34.000</h2>
-                    <p>9 orçamentos pendentes</p>
-                </div>
-                <div class="card-resumo verde">
-                    <small>Taxa de aprovação</small>
-                    <h2>68%</h2>
-                    <p>Últimos 30 dias</p>
-                </div>
-            </section>
-
-            <section class="painel-orcamentos">
-                <div class="abas">
-                    <button class="aba ativa">Todos <span class="contador">24</span></button>
-                    <button class="aba">Aguardando <span class="contador">9</span></button>
-                    <button class="aba">Aprovados <span class="contador">11</span></button>
-                    <button class="aba">Recusados <span class="contador">3</span></button>
-                </div>
-
-                <div class="filtros">
-                    <select>
-                        <option value="desc">mais recentes</option>
-                        <option value="asc">mais antigos</option>
-                    </select>
-                    <input type="date">
-                    <input type="date">
-                </div>
-                <input class="busca-cliente" type="search" placeholder="Buscar pelo nome do cliente">
-
-                <table class="tabela-orcamentos">
-                    <thead>
-                        <tr>
-                            <th>Cliente</th>
-                            <th>Serviços</th>
-                            <th>Valor</th>
-                            <th>Data de abertura</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="cliente"><button class="btn-editar" title="Editar"><i class="bi bi-pencil"></i></button>Augusto Silva Thibeco</td>
-                            <td>Portão basculante</td>
-                            <td>R$ 5.900</td>
-                            <td>14/09/2026</td>
-                            <td><span class="status-aguardando">Aguardando</span></td>
-                        </tr>
-                        <tr>
-                            <td class="cliente"><button class="btn-editar" title="Editar"><i class="bi bi-pencil"></i></button>Casa de peças do Osvaldo</td>
-                            <td>Grade de proteção - 12 janelas</td>
-                            <td>R$ 14.200</td>
-                            <td>10/09/2026</td>
-                            <td><span class="status-aguardando">Aguardando</span></td>
-                        </tr>
-                        <tr>
-                            <td class="cliente"><button class="btn-editar" title="Editar"><i class="bi bi-pencil"></i></button>Alessandre Junior</td>
-                            <td>Escada metálica externa</td>
-                            <td>R$ 3.450</td>
-                            <td>30/08/2026</td>
-                            <td><span class="status-aprovado">Aprovado</span></td>
-                        </tr>
-                        <tr>
-                            <td class="cliente"><button class="btn-editar" title="Editar"><i class="bi bi-pencil"></i></button>João Lazáro dos Santos</td>
-                            <td>Corrimão de escada interna</td>
-                            <td>R$ 2.150</td>
-                            <td>07/09/2026</td>
-                            <td><span class="status-aprovado">Aprovado</span></td>
-                        </tr>
-                        <tr>
-                            <td class="cliente"><button class="btn-editar" title="Editar"><i class="bi bi-pencil"></i></button>Vanderlei Mendes Santana</td>
-                            <td>Janela de alumínio — 4 unid.</td>
-                            <td>R$ 4.320</td>
-                            <td>02/09/2026</td>
-                            <td><span class="status-recusado">Recusado</span></td>
-                        </tr>
-                        <tr>
-                            <td class="cliente"><button class="btn-editar" title="Editar"><i class="bi bi-pencil"></i></button>Maria Claudete Nunes</td>
-                            <td>Portão de garagem automatizado</td>
-                            <td>R$ 6.800</td>
-                            <td>06/09/2026</td>
-                            <td><span class="status-recusado">Recusado</span></td>
-                        </tr>
-                        <tr>
-                            <td class="cliente"><button class="btn-editar" title="Editar"><i class="bi bi-pencil"></i></button>Wellington Souza Costa de Santana</td>
-                            <td>Portão de garagem automatizado</td>
-                            <td>R$ 4.900</td>
-                            <td>06/09/2026</td>
-                            <td><span class="status-aprovado">Aprovado</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <div class="rodape-tabela">
-                    <span>Mostrando 1–7 de 24 orçamentos</span>
-                    <div class="paginacao">
-                        <button>&lt;</button>
-                        <button class="ativa">1</button>
-                        <button>2</button>
-                        <button>3</button>
-                        <button>&gt;</button>
+                <section class="resumo">
+                    <div class="card-resumo">
+                        <small>Total em aberto</small>
+                        <h2>R$ 34.000</h2>
+                        <p>9 orçamentos pendentes</p>
                     </div>
+                    <div class="card-resumo verde">
+                        <small>Taxa de aprovação</small>
+                        <h2>68%</h2>
+                        <p>Últimos 30 dias</p>
+                    </div>
+                </section>
+
+                <section class="painel-orcamentos">
+                    <div class="abas">
+                        <button class="aba ativa" data-filtro="todos">Todos <span class="contador">24</span></button>
+                        <button class="aba" data-filtro="aguardando">Aguardando <span class="contador">9</span></button>
+                        <button class="aba" data-filtro="aprovado">Aprovados <span class="contador">11</span></button>
+                        <button class="aba" data-filtro="recusado">Recusados <span class="contador">3</span></button>
+                    </div>
+
+                    <div class="filtros">
+                        <select>
+                            <option value="desc">mais recentes</option>
+                            <option value="asc">mais antigos</option>
+                        </select>
+                        <input type="date">
+                        <input type="date">
+                    </div>
+                    <input class="busca-cliente" type="search" placeholder="Buscar pelo nome do cliente">
+
+                    <table class="tabela-orcamentos">
+                        <thead>
+                            <tr>
+                                <th>Cliente</th>
+                                <th>Serviços</th>
+                                <th>Valor</th>
+                                <th>Data de abertura</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-status="aguardando">
+                                <td class="cliente"><button class="btn-editar" title="Editar"><i
+                                            class="bi bi-pencil"></i></button>Augusto Silva Thibeco</td>
+                                <td>Portão basculante</td>
+                                <td>R$ 5.900</td>
+                                <td>14/09/2026</td>
+                                <td><span class="status-aguardando">Aguardando</span></td>
+                            </tr>
+                            <tr data-status="aguardando">
+                                <td class="cliente"><button class="btn-editar" title="Editar"><i
+                                            class="bi bi-pencil"></i></button>Casa de peças do Osvaldo</td>
+                                <td>Grade de proteção - 12 janelas</td>
+                                <td>R$ 14.200</td>
+                                <td>10/09/2026</td>
+                                <td><span class="status-aguardando">Aguardando</span></td>
+                            </tr>
+                            <tr data-status="aprovado">
+                                <td class="cliente"><button class="btn-editar" title="Editar"><i
+                                            class="bi bi-pencil"></i></button>Alessandre Junior</td>
+                                <td>Escada metálica externa</td>
+                                <td>R$ 3.450</td>
+                                <td>30/08/2026</td>
+                                <td><span class="status-aprovado">Aprovado</span></td>
+                            </tr>
+                            <tr data-status="aprovado">
+                                <td class="cliente"><button class="btn-editar" title="Editar"><i
+                                            class="bi bi-pencil"></i></button>João Lazáro dos Santos</td>
+                                <td>Corrimão de escada interna</td>
+                                <td>R$ 2.150</td>
+                                <td>07/09/2026</td>
+                                <td><span class="status-aprovado">Aprovado</span></td>
+                            </tr>
+                            <tr data-status="recusado">
+                                <td class="cliente"><button class="btn-editar" title="Editar"><i
+                                            class="bi bi-pencil"></i></button>Vanderlei Mendes Santana</td>
+                                <td>Janela de alumínio — 4 unid.</td>
+                                <td>R$ 4.320</td>
+                                <td>02/09/2026</td>
+                                <td><span class="status-recusado">Recusado</span></td>
+                            </tr>
+                            <tr data-status="recusado">
+                                <td class="cliente"><button class="btn-editar" title="Editar"><i
+                                            class="bi bi-pencil"></i></button>Maria Claudete Nunes</td>
+                                <td>Portão de garagem automatizado</td>
+                                <td>R$ 6.800</td>
+                                <td>06/09/2026</td>
+                                <td><span class="status-recusado">Recusado</span></td>
+                            </tr>
+                            <tr data-status="aprovado">
+                                <td class="cliente"><button class="btn-editar" title="Editar"><i
+                                            class="bi bi-pencil"></i></button>Wellington Souza Costa de Santana</td>
+                                <td>Portão de garagem automatizado</td>
+                                <td>R$ 4.900</td>
+                                <td>06/09/2026</td>
+                                <td><span class="status-aprovado">Aprovado</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="sem-resultado" id="sem-resultado" hidden>Nenhum orçamento encontrado.</p>
+
+                    <div class="rodape-tabela">
+                        <span id="info-tabela">Mostrando 1–7 de 24 orçamentos</span>
+                        <div class="paginacao">
+                            <button>&lt;</button>
+                            <button class="ativa">1</button>
+                            <button>2</button>
+                            <button>3</button>
+                            <button>&gt;</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+
+        <div id="tela-novo" hidden>
+            <div class="content">
+
+                <div class="topo-pagina">
+                    <button type="button" class="btn-voltar voltar-lista" title="Voltar">
+                        <i class="bi bi-arrow-return-left"></i>
+                    </button>
+                    <span class="caminho">
+                        <a href="#" class="voltar-lista">Orçamentos</a>/Novo orçamento
+                    </span>
                 </div>
-            </section>
+
+                <h1 class="titulo-novo">Novo Orçamento</h1>
+                <p class="subtitulo-novo">Preencha os dados do cliente e dos serviços para gerar o orçamento.</p>
+
+                <form id="form-novo">
+
+                    <section class="card-form">
+                        <h2>Cliente</h2>
+
+                        <label for="nome">Nome do cliente</label>
+                        <input type="text" id="nome" class="campo" placeholder="Ex: Augusto Silva Thibeco">
+
+                        <label for="telefone">Telefone/WhatsApp</label>
+                        <input type="tel" id="telefone" class="campo" placeholder="(00) 00000-0000">
+
+                        <label for="endereco">Endereço da obra</label>
+                        <input type="text" id="endereco" class="campo" placeholder="Rua, número, bairro, cidade">
+                    </section>
+
+                    <section class="card-form">
+                        <h2>Serviços</h2>
+                        <p class="legenda">Adicione um ou mais itens do orçamento</p>
+
+                        <label for="descricao">Descrição</label>
+                        <input type="text" id="descricao" class="campo" placeholder="Ex: Portão basculante">
+
+                        <label for="quantidade">Quantidade</label>
+                        <input type="number" id="quantidade" class="campo" placeholder="1" min="1">
+
+                        <label for="valor">Valor (R$)</label>
+                        <input type="text" id="valor" class="campo" placeholder="0,00">
+
+                        <div class="total-orcamento">
+                            <span>Valor total do orçamento</span>
+                            <strong>R$ 0,00</strong>
+                        </div>
+                    </section>
+
+                    <section class="card-form">
+                        <h2>Condições</h2>
+
+                        <label for="data-abertura">Data de abertura</label>
+                        <input type="date" id="data-abertura" class="campo">
+
+                        <label for="valido-ate">Válido até</label>
+                        <input type="date" id="valido-ate" class="campo">
+
+                        <label>Status inicial</label>
+                        <div class="opcoes-status">
+                            <input type="radio" name="status" id="st-aguardando" value="aguardando" checked>
+                            <label for="st-aguardando">Aguardando</label>
+
+                            <input type="radio" name="status" id="st-aprovado" value="aprovado">
+                            <label for="st-aprovado">Aprovado</label>
+                        </div>
+
+                        <label for="obs">Observações</label>
+                        <textarea id="obs" class="campo campo-obs"
+                            placeholder="Condições de pagamento, prazo de execução, garantia..."></textarea>
+                    </section>
+
+                    <div class="acoes">
+                        <button type="button" class="btn-cancelar voltar-lista">Cancelar</button>
+                        <button type="submit" class="btn-salvar">Salvar orçamento</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+                
+        <div id="tela-editar" hidden>
+            <div class="content">
+
+                <div class="topo-pagina">
+                    <button type="button" class="btn-voltar voltar-lista" title="Voltar">
+                        <i class="bi bi-arrow-return-left"></i>
+                    </button>
+                    <span class="caminho">
+                        <a href="#" class="voltar-lista">Orçamento</a>/<span class="sublinhado">Editar</span>
+                    </span>
+                </div>
+
+                <div class="titulo-linha">
+                    <h1 class="titulo-novo" id="ed-nome"></h1>
+                    <span class="pill" id="ed-pill"></span>
+                </div>
+                <p class="subtitulo-novo" id="ed-aberto"></p>
+
+                <section class="card-form">
+                    <div class="card-titulo">
+                        <h2>Cliente</h2>
+                        <a href="#" class="link-editar">Editar</a>
+                    </div>
+
+                    <p class="rotulo">Nome</p>
+                    <p class="dado" id="ed-cli-nome"></p>
+
+                    <p class="rotulo">Telefone</p>
+                    <p class="dado" id="ed-cli-telefone"></p>
+
+                    <p class="rotulo">Endereço da obra</p>
+                    <p class="dado" id="ed-cli-endereco"></p>
+                </section>
+
+                <section class="card-form">
+                    <div class="card-titulo">
+                        <h2>Serviços</h2>
+                        <a href="#" class="link-editar">Editar</a>
+                    </div>
+
+                    <table class="tabela-servicos">
+                        <thead>
+                            <tr>
+                                <th>Descrição</th>
+                                <th>Qtd.</th>
+                                <th>Valor unit.</th>
+                                <th>Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ed-itens"></tbody>
+                    </table>
+
+                    <div class="total-edicao">
+                        <span>Total do orçamento</span>
+                        <strong id="ed-total"></strong>
+                    </div>
+                </section>
+
+                <section class="card-form">
+                    <h2>Condições</h2>
+
+                    <p class="rotulo">Validade</p>
+                    <p class="dado" id="ed-validade"></p>
+
+                    <p class="rotulo">Prazo de execução</p>
+                    <p class="dado" id="ed-prazo"></p>
+
+                    <p class="rotulo">Status</p>
+                    <div class="opcoes-status">
+                        <input type="radio" name="status-edit" id="ed-st-aguardando" value="aguardando">
+                        <label for="ed-st-aguardando">Aguardando</label>
+
+                        <input type="radio" name="status-edit" id="ed-st-aprovado" value="aprovado">
+                        <label for="ed-st-aprovado">Aprovado</label>
+
+                        <input type="radio" name="status-edit" id="ed-st-recusado" value="recusado">
+                        <label for="ed-st-recusado">Recusado</label>
+                    </div>
+
+                    <p class="rotulo">Observação</p>
+                    <textarea id="ed-obs" class="campo campo-obs campo-largo"></textarea>
+                </section>
+
+                <div class="acoes">
+                    <button type="button" class="btn-excluir" id="btn-excluir">Excluir orçamento</button>
+                    <button type="button" class="btn-salvar" id="btn-salvar-edicao">Salvar alterações</button>
+                </div>
+
+            </div>
         </div>
     </main>
+    </main>
+
+    <script src="js/orçamentos.js"></script>
 
 </body>
+
 </html>
