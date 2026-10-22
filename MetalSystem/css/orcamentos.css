@@ -563,3 +563,7 @@
 .pag-orcamentos .btn-excluir:hover {
     background-color: #ffe9e7;
 }
+
+.pag-orcamentos main {
+    margin-left: 250px !important;
+}
