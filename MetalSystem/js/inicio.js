@@ -5,7 +5,7 @@
 // =========================================================
 
 // ---------- 1) DADOS DE EXEMPLO (troque pelos reais quando houver back-end) ----------
-const usuario = { nome: 'Carlos Silva', empresa: 'Serralheria Silva' };
+const usuario = { nome: 'Elias', empresa: 'Serralheria do Elias' };
 
 const clientes = [
     { nome: 'Augusto Silva Thibeco',  telefone: '(34) 99902-3149', cadastro: '25/03/2025' },
