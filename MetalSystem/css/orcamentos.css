@@ -567,3 +567,65 @@
 .pag-orcamentos main {
     margin-left: 250px !important;
 }
+
+/* ---------- Links Editar / Cancelar / Salvar ---------- */
+.pag-orcamentos .card-links {
+    display: flex;
+    gap: 16px;
+}
+
+.pag-orcamentos .link-cancelar,
+.pag-orcamentos #cli-cancelar,
+.pag-orcamentos #srv-cancelar {
+    color: #777777;
+}
+
+/* ---------- Campos dentro da tabela de serviços ---------- */
+.pag-orcamentos .campo-tabela {
+    width: 100%;
+    min-width: 0;
+    padding: 4px 8px;
+    font-size: 13px;
+}
+
+.pag-orcamentos .tabela-servicos .in-qtd {
+    width: 70px;
+    text-align: center;
+}
+
+.pag-orcamentos .tabela-servicos .in-valor {
+    text-align: right;
+}
+
+/* coluna do botão de remover: só aparece no modo edição */
+.pag-orcamentos .col-remover {
+    display: none;
+    width: 40px;
+}
+
+.pag-orcamentos .tabela-servicos.editando .col-remover {
+    display: table-cell;
+}
+
+.pag-orcamentos .btn-remover-item {
+    border: 0;
+    background: none;
+    font-size: 14px;
+    color: #d91100;
+    cursor: pointer;
+}
+
+.pag-orcamentos .btn-add-item {
+    margin-top: 10px;
+    padding: 4px 12px;
+    border: 1px dashed #ff7800;
+    border-radius: 4px;
+    background: none;
+    font-size: 13px;
+    color: #ff7800;
+    cursor: pointer;
+}
+
+.pag-orcamentos .btn-add-item:hover {
+    background-color: #fff3e6;
+}
