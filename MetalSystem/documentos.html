@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Lateral</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <link rel="stylesheet" href="css/documentos1.css">
+
+</head>
+
+<body>
+    <nav class="sidebar">
+        <img src="img/logo.png" alt="Logotipo">
+        <ul class="list">
+            <li>
+                <a href="inicio.html">
+                    <i class="bi bi-house-door icons"></i>
+                    Início
+                </a>
+            </li>
+            <p class="word">Operacional</p>
+            <li>
+                <a href="clientes.html">
+                    <i class="bi bi-people icons"></i>
+                    Clientes
+                </a>
+            </li>
+            <li>
+                <a href="orcamentos.html">
+                    <i class="bi bi-file-earmark-spreadsheet icons"></i>
+                    Orçamentos
+                </a>
+            </li>
+            <li>
+                <a href="documentos.html">
+                    <i class="bi bi-file-earmark-text icons"></i>
+                    Documentos
+                </a>
+            </li>
+            <p class="word">Financeiro</p>
+            <li>
+                <a href="entradas_saidas.html">
+                    <i class="bi bi-file-earmark-diff icons"></i>
+                    Entradas e Saídas
+                </a>
+            </li>
+            <li>
+                <a href="despesas.html">
+                    <i class="bi bi-credit-card icons"></i>
+                    Despesas
+                </a>
+            </li>
+            <li>
+                <a href="relatorio.html">
+                    <i class="bi bi-cash-coin icons"></i>
+                    Relatório
+                </a>
+            </li>
+            <li class="divisor"></li>
+            <li>
+                <a href="index.html">
+                    <i class="bi bi-box-arrow-right icons"></i>
+                    Sair
+                </a>
+            </li>
+        </ul>
+    </nav>
+       </nav>
+
+    <main class="conteudo">
+
+        <header class="topbar">
+            <input type="search" class="busca-global" placeholder="Pesquisar no sistema...">
+
+            <div class="usuario">
+                <span class="usuario-avatar">E</span>
+                <div class="usuario-info">
+                    <strong>Elias</strong>
+                    <span>Serralheria do Elias</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="pagina">
+
+            <div class="pagina-topo">
+                <h1>Documentos Fiscais</h1>
+                <a href="#" class="btn-laranja">+ Novo<br>Documento Fiscal</a>
+            </div>
+
+            <section class="cards">
+                <div class="card">
+                    <span class="card-titulo">Documentos Registrados</span>
+                    <strong class="card-valor">5</strong>
+                </div>
+
+                <div class="card card-destaque">
+                    <span class="card-titulo">Valor total</span>
+                    <strong class="card-valor">R$ 24.000,00</strong>
+                </div>
+
+                <div class="card">
+                    <span class="card-titulo">Último Documento</span>
+                    <strong class="card-valor">R$10.000,00</strong>
+                    <span class="card-detalhe">16/09 . Julio Pintor . Natinha</span>
+                </div>
+            </section>
+
+            <section class="painel">
+
+                <form class="filtros">
+                    <div class="campo campo-busca">
+                        <label for="buscar">Buscar</label>
+                        <input type="text" id="buscar" placeholder="Cliente,N° Doc ou pedido">
+                    </div>
+
+                    <div class="campo">
+                        <label for="de">De</label>
+                        <input type="date" id="de">
+                    </div>
+
+                    <div class="campo">
+                        <label for="ate">Até</label>
+                        <input type="date" id="ate">
+                    </div>
+
+                    <div class="campo">
+                        <label for="tipo">Tipo</label>
+                        <select id="tipo">
+                            <option value="">Todos</option>
+                            <option>Natinha</option>
+                            <option>Nota Fiscal</option>
+                            <option>Comprovante</option>
+                        </select>
+                    </div>
+
+                    <button type="reset" class="btn-limpar">Limpar Filtros</button>
+                </form>
+
+                <table class="tabela">
+                    <thead>
+                        <tr>
+                            <th>Emissão</th>
+                            <th>Nº Doc</th>
+                            <th>Fornecedor</th>
+                            <th>Pedido</th>
+                            <th>Tipo</th>
+                            <th>Valor</th>
+                            <th>Anexo</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>16/09</td>
+                            <td>4472</td>
+                            <td>Julio Pintor</td>
+                            <td>Pedido #128</td>
+                            <td>Natinha</td>
+                            <td>R$10.000,00</td>
+                            <td>Foto</td>
+                            <td class="acoes"><button class="btn-mini">Ver</button><button class="btn-mini">Excluir</button></td>
+                        </tr>
+                        <tr>
+                            <td>11/09</td>
+                            <td>4471</td>
+                            <td>Arthur J.</td>
+                            <td>Pedido #127</td>
+                            <td>Nota Fiscal</td>
+                            <td>R$10.000,00</td>
+                            <td>PDF</td>
+                            <td class="acoes"><button class="btn-mini">Ver</button><button class="btn-mini">Excluir</button></td>
+                        </tr>
+                        <tr>
+                            <td>09/09</td>
+                            <td>4470</td>
+                            <td>R Pindo</td>
+                            <td>Pedido #126</td>
+                            <td>Comprovante</td>
+                            <td>R$4.000,00</td>
+                            <td>Sem anexo</td>
+                            <td class="acoes"><button class="btn-mini">Ver</button><button class="btn-mini">Excluir</button></td>
+                        </tr>
+                        <tr>
+                            <td>08/09</td>
+                            <td>4469</td>
+                            <td>Jane Rocha</td>
+                            <td>Pedido #125</td>
+                            <td>Julio Pintor</td>
+                            <td>R$500,00</td>
+                            <td>PDF</td>
+                            <td class="acoes"><button class="btn-mini">Ver</button><button class="btn-mini">Excluir</button></td>
+                        </tr>
+                        <tr>
+                            <td>06/09</td>
+                            <td>4468</td>
+                            <td>Sandro</td>
+                            <td>Pedido #124</td>
+                            <td>Julio Pintor</td>
+                            <td>R$1.200,00</td>
+                            <td>PDF</td>
+                            <td class="acoes"><button class="btn-mini">Ver</button><button class="btn-mini">Excluir</button></td>
+                        </tr>
+                        <tr>
+                            <td>02/09</td>
+                            <td>4467</td>
+                            <td>Lucas</td>
+                            <td>Pedido #123</td>
+                            <td>Julio Pintor</td>
+                            <td>R$2.000,00</td>
+                            <td>Foto</td>
+                            <td class="acoes"><button class="btn-mini">Ver</button><button class="btn-mini">Excluir</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </section>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

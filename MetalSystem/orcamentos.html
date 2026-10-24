@@ -36,7 +36,7 @@
                 </a>
             </li>
             <li>
-                <a href="documentos1.html">
+                <a href="documentos.html">
                     <i class="bi bi-file-earmark-text icons"></i>
                     Documentos
                 </a>
@@ -287,6 +287,9 @@
             </div>
         </div>
                 
+               <!-- ================================================== -->
+        <!-- TELA 3: EDITAR ORÇAMENTO (começa escondida)        -->
+        <!-- ================================================== -->
         <div id="tela-editar" hidden>
             <div class="content">
 
@@ -305,39 +308,53 @@
                 </div>
                 <p class="subtitulo-novo" id="ed-aberto"></p>
 
+                <!-- CLIENTE -->
                 <section class="card-form">
                     <div class="card-titulo">
                         <h2>Cliente</h2>
-                        <a href="#" class="link-editar">Editar</a>
+                        <div class="card-links">
+                            <a href="#" class="link-editar" id="cli-cancelar" hidden>Cancelar</a>
+                            <a href="#" class="link-editar" id="cli-editar">Editar</a>
+                        </div>
                     </div>
 
                     <p class="rotulo">Nome</p>
                     <p class="dado" id="ed-cli-nome"></p>
+                    <input type="text" class="campo" id="in-cli-nome" hidden>
 
                     <p class="rotulo">Telefone</p>
                     <p class="dado" id="ed-cli-telefone"></p>
+                    <input type="tel" class="campo" id="in-cli-telefone" hidden>
 
                     <p class="rotulo">Endereço da obra</p>
                     <p class="dado" id="ed-cli-endereco"></p>
+                    <input type="text" class="campo" id="in-cli-endereco" hidden>
                 </section>
 
+                <!-- SERVIÇOS -->
                 <section class="card-form">
                     <div class="card-titulo">
                         <h2>Serviços</h2>
-                        <a href="#" class="link-editar">Editar</a>
+                        <div class="card-links">
+                            <a href="#" class="link-editar" id="srv-cancelar" hidden>Cancelar</a>
+                            <a href="#" class="link-editar" id="srv-editar">Editar</a>
+                        </div>
                     </div>
 
-                    <table class="tabela-servicos">
+                    <table class="tabela-servicos" id="ed-tabela">
                         <thead>
                             <tr>
                                 <th>Descrição</th>
                                 <th>Qtd.</th>
                                 <th>Valor unit.</th>
                                 <th>Subtotal</th>
+                                <th class="col-remover"></th>
                             </tr>
                         </thead>
                         <tbody id="ed-itens"></tbody>
                     </table>
+
+                    <button type="button" class="btn-add-item" id="srv-add" hidden>+ Adicionar item</button>
 
                     <div class="total-edicao">
                         <span>Total do orçamento</span>
@@ -345,6 +362,7 @@
                     </div>
                 </section>
 
+                <!-- CONDIÇÕES -->
                 <section class="card-form">
                     <h2>Condições</h2>
 
@@ -370,6 +388,7 @@
                     <textarea id="ed-obs" class="campo campo-obs campo-largo"></textarea>
                 </section>
 
+                <!-- BOTÕES -->
                 <div class="acoes">
                     <button type="button" class="btn-excluir" id="btn-excluir">Excluir orçamento</button>
                     <button type="button" class="btn-salvar" id="btn-salvar-edicao">Salvar alterações</button>
@@ -377,6 +396,12 @@
 
             </div>
         </div>
+    </main>
+
+    <script src="js/orcamentos.js"></script>
+
+</body>
+</html>
     </main>
     </main>
 
