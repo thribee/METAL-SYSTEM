@@ -12,13 +12,8 @@ body {
 
 main {
     flex: 1;
-<<<<<<< HEAD
     padding: 0;
     margin-left: 250px;
-=======
-    min-width: 0;          /* impede tabelas largas de empurrarem a página */
-    margin-left: 250px;    /* igual à largura da sidebar */
->>>>>>> 20e916fb962231d75b38ed1334ca0cb016ad057b
 }
 
 header {

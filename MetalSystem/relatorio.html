@@ -9,6 +9,7 @@
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/relatorio.css">
 </head>
 
 <body>
@@ -72,14 +73,199 @@
         <header>
             <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search" />
         </header>
-        <h1 class="main-title">Despesas</h1>
+        <h1 class="main-title">Relatório/h1>
         <section class="content">
-
+            <section>
+                <div class="painel-cards-relatorio">
+                    <div class="card">
+                        <div class="info-card">
+                            <div class="info-relatorio">
+                                <h2>Total de saídas</h2>
+                                <p>R$ <span id="despesa-total-saidas">31.850,00</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="info-card">
+                            <div class="info-relatorio">
+                                <h2>Salários</h2>
+                                <p>R$ <span id="despesa-total-salarios">18.000,00</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="info-card">
+                            <div class="info-relatorio">
+                                <h2>Despesas mensais</h2>
+                                <p>R$ <span id="despesa-total-mensal">6.350,00</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="info-card">
+                            <div class="info-relatorio">
+                                <h2>Máquinas</h2>
+                                <p>R$ <span id="despesa-total-maquinas">7.500,00</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="painel-relatorio">
+                <div class="filtro-relatorio">
+                    <div class="filtro-button">
+                        <span class="title-filtro">Exibir</span>
+                        <div class="filtro-data-button">
+                            <button class="button-style active" data-filter="todos">Todos</button>
+                            <button class="button-style" data-filter="salarios">Salários</button>
+                            <button class="button-style" data-filter="despesas">Desp. mensais</button>
+                            <button class="button-style" data-filter="maquinas">Máquinas</button>
+                        </div>
+                    </div>
+                    <div class="filtro-data-button">
+                        <div class="filtro-button">
+                            <span class="title-filtro">De</span>
+                            <input type="date" class="button-style" id="data-comeco">
+                        </div>
+                        <div class="filtro-button">
+                            <span class="title-filtro">Até</span>
+                            <input type="date" class="button-style" id="data-fim">
+                        </div>
+                        <div class="filtro-button">
+                            <span class="title-filtro" style="visibility: hidden;">Ação</span>
+                            <button class="button-style" id="limpar-filtro">Limpar filtros</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="conteudo-relatorio">
+                    <div class="conteudo-lista-relatorio">
+                        <table class="conteudo-tabela">
+                            <thead class="cabecalho-tabela">
+                                <tr>
+                                    <th style="width: 25%;">Categoria</th>
+                                    <th style="width: 30%;">Item</th>
+                                    <th class="alinhar-texto" width: 15%;">Lanç.</th>
+                                    <th class="alinhar-texto" width: 18%;">Valor</th>
+                                    <th class="alinhar-texto" width: 12%;">%</th>
+                                </tr>
+                            </thead>
+                            <tbody class="corpo-tabela">
+                                <tr>
+                                    <td><span class="table-status table-status-salario">Salários</span></td>
+                                    <td>Folha de pagamento</td>
+                                    <td class="alinhar-texto">4</td>
+                                    <td class="alinhar-texto">R$ 15.600,00</td>
+                                    <td class="alinhar-texto">0%</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="table-status table-status-salario">Salários</span></td>
+                                    <td>Adiantamentos</td>
+                                    <td class="alinhar-texto">3</td>
+                                    <td class="alinhar-texto">R$ 2.400,00</td>
+                                    <td class="alinhar-texto">0%</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="table-status table-status-despesa">Desp. mensais</span></td>
+                                    <td>Aluguel do galpão</td>
+                                    <td class="alinhar-texto">1</td>
+                                    <td class="alinhar-texto">R$ 2.800,00</td>
+                                    <td class="alinhar-texto">0%</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="table-status table-status-despesa">Desp. mensais</span></td>
+                                    <td>Conta de energia</td>
+                                    <td class="alinhar-texto">1</td>
+                                    <td class="alinhar-texto">R$ 1.650,00</td>
+                                    <td class="alinhar-texto">0%</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="table-status table-status-despesa">Desp. mensais</span></td>
+                                    <td>Conta de água</td>
+                                    <td class="alinhar-texto">1</td>
+                                    <td class="alinhar-texto">R$ 380,00</td>
+                                    <td class="alinhar-texto">0%</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="table-status table-status-despesa">Desp. mensais</span></td>
+                                    <td>Internet / telefone</td>
+                                    <td class="alinhar-texto">1</td>
+                                    <td class="alinhar-texto">R$ 520,00</td>
+                                    <td class="alinhar-texto">0%</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="table-status table-status-maquina">Máquinas</span></td>
+                                    <td>Eletrodos e insumos</td>
+                                    <td class="alinhar-texto">6</td>
+                                    <td class="alinhar-texto">R$ 2.300,00</td>
+                                    <td class="alinhar-texto">0%</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="table-status table-status-maquina">Máquinas</span></td>
+                                    <td>Manutenção corretiva</td>
+                                    <td class="alinhar-texto">3</td>
+                                    <td class="alinhar-texto">R$ 5.200,00</td>
+                                    <td class="alinhar-texto">0%</td>
+                                </tr>
+                            </tbody>
+                            <tfoot class="rodape-tabela">
+                                <tr>
+                                    <td>Total do período</td>
+                                    <td></td>
+                                    <td class="alinhar-texto">0</td>
+                                    <td class="alinhar-texto">R$ 0,00</td>
+                                    <td class="alinhar-texto">100%</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <div class="conteudo-lateral-relatorio">
+                        <div class="grafico-linha">
+                            <h3 class="titulo">Distribuição por categoria</h3>
+                            <div class="barras-container">
+                                <div class="barra-grupo">
+                                    <div class="grupo-rotulo">
+                                        <span class="rotulo">Salários</span>
+                                        <span class="rotulo">R$ 18.000,00</span>
+                                    </div>
+                                    <div class="fundo-linha">
+                                        <div class="barra-horizontal" style="background-color: #ff7800; width: 85%;"></div>
+                                    </div>
+                                </div>
+                                <div class="barra-grupo">
+                                    <div class="grupo-rotulo">
+                                        <span class="rotulo">Despesas mensais</span>
+                                        <span class="rotulo">R$ 6.350,00</span>
+                                    </div>
+                                    <div class="fundo-linha">
+                                        <div class="barra-horizontal" style="background-color: #9e9e9e; width: 60%;"></div>
+                                    </div>
+                                </div>
+                                <div class="barra-grupo">
+                                    <div class="grupo-rotulo">
+                                        <span class="rotulo">Máquinas</span>
+                                        <span class="rotulo">R$ 7.000,00</span>
+                                    </div>
+                                    <div class="fundo-linha">
+                                        <div class="barra-horizontal" style="background-color: #009ebf; width: 40%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-maior-gasto">
+                            <div>
+                                <span class="titulo-card-maior-gasto">Maior gasto do período</span>
+                                <span class="titulo-tipo-gasto">Folha de pagamento</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </section>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
+    <script src="js/relatorio.js"></script>
     <script src="js/script.js"></script>
 </body>
 
