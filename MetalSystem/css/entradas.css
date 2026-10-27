@@ -1,0 +1,107 @@
+.resumo-card {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px 16px;
+}
+ 
+.resumo-saldo {
+    border-color: #ff7a00;
+}
+ 
+.resumo-valor {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+ 
+/* Botão laranja */
+.btn-laranja {
+    background-color: #ff7a00;
+    color: #fff;
+    border: none;
+}
+ 
+.btn-laranja:hover {
+    background-color: #e06c00;
+    color: #fff;
+}
+ 
+/* Abas na cor do sistema */
+.nav-tabs .nav-link {
+    color: #333;
+}
+ 
+.nav-tabs .nav-link.active {
+    border-color: #ff7a00 #ff7a00 transparent;
+}
+ 
+/* Caixa da tabela */
+.tabela-box {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+}
+/* Modal Nova Entrada */
+.modal-nova .modal-content {
+    background-color: #212529;
+    color: #fff;
+}
+
+.modal-nova .modal-header {
+    border-bottom: 1px solid #adb5bd;
+    padding: 6px 12px;
+}
+
+.modal-nova .form-control,
+.modal-nova .form-select {
+    background-color: #ddd;
+    border: none;
+}
+/* Cards de resumo */
+.resumo-card {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px 16px;
+}
+ 
+.resumo-saldo {
+    border-color: #ff7a00;
+}
+ 
+.resumo-valor {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+ 
+/* Botão laranja */
+.btn-laranja {
+    background-color: #ff7a00;
+    color: #fff;
+    border: none;
+}
+ 
+.btn-laranja:hover {
+    background-color: #e06c00;
+    color: #fff;
+}
+ 
+/* Abas na cor do sistema */
+.nav-tabs .nav-link {
+    color: #333;
+}
+ 
+.nav-tabs .nav-link.active {
+    border-color: #ff7a00 #ff7a00 transparent;
+}
+ 
+/* Caixa da tabela */
+.tabela-box {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+}

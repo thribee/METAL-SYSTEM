@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
+ 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu Lateral</title>
+    <title>Entradas e Saídas</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/style.css">
-</head>
 
+    <link rel="stylesheet" href="css/entradas.css">
+
+</head>
+ 
 <body>
     <nav class="sidebar">
         <img src="img/logo.png" alt="Logotipo">
@@ -42,7 +45,7 @@
             </li>
             <p class="word">Financeiro</p>
             <li>
-                <a href="entradas_saidas.html">
+                <a href="entradas_saidas.html" class="active">
                     <i class="bi bi-file-earmark-diff icons"></i>
                     Entradas e Saídas
                 </a>
@@ -72,8 +75,500 @@
         <header>
             <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search" />
         </header>
-        <h1 class="main-title">Despesas</h1>
+        <h1 class="main-title">Entradas e Saídas</h1>
         <section class="content">
+ 
+            <!-- Cards de resumo -->
+            <div class="row g-4 mb-4">
+                <div class="col-md-4">
+                    <div class="resumo-card">
+                        <small>Entradas do mês</small>
+                        <p class="resumo-valor text-success">R$ 15.000,00</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="resumo-card">
+                        <small>Saídas do mês</small>
+                        <p class="resumo-valor text-danger">R$ 5.000,00</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="resumo-card resumo-saldo">
+                        <small>Saldo</small>
+                        <p class="resumo-valor text-success">R$ 10.000,00</p>
+                    </div>
+                </div>
+            </div>
+ 
+            <!-- Abas + botão -->
+            <div class="d-flex justify-content-between align-items-end">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="tab-entradas" data-bs-toggle="tab" data-bs-target="#aba-entradas"
+                        type="button" role="tab">Entradas</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="tab-saidas" data-bs-toggle="tab" data-bs-target="#aba-saidas"
+                        type="button" role="tab">Saídas</button>
+                    </li>
+                </ul>
+                    <button class="btn btn-laranja mb-2" id="btn-nova-entrada" data-bs-toggle="modal"
+                    data-bs-target="#modalNovaEntrada">+ Nova entrada</button>
+                    <button class="btn btn-laranja mb-2 d-none" id="btn-nova-saida" data-bs-toggle="modal" data-bs-target="#modalNovaSaida">+ Nova saída</button>
+            </div>
+ 
+            <div class="tab-content tabela-box">
+                <!-- Aba Entradas -->
+                <div class="tab-pane fade show active" id="aba-entradas" role="tabpanel">
+ 
+                    <!-- Filtros -->
+                   <form class="row g-3 align-items-end mb-3">
+            <div class="col-md-3">
+                <label for="busca" class="form-label">Buscar</label>
+                <input type="text" id="busca" class="form-control form-control-sm w-100">
+            </div>
+            <div class="col-md-2">
+                <label for="data-de" class="form-label">De</label>
+                <input type="date" id="data-de" class="form-control form-control-sm w-100">
+            </div>
+            <div class="col-md-2">
+                <label for="data-ate" class="form-label">Até</label>
+                <input type="date" id="data-ate" class="form-control form-control-sm w-100">
+            </div>
+            <div class="col-md-2">
+             <button type="reset" class="btn btn-sm btn-outline-secondary">Limpar Filtros</button>
+                </div>
+</form>
+ 
+                    <!-- Tabela -->
+                    <table class="table align-middle">
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Cliente</th>
+                                <th>Referência</th>
+                                <th>Forma</th>
+                                <th>Valor</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>16/09</td>
+                                <td>Julio Pintor</td>
+                                <td>Pedido #128 - grade</td>
+                                <td>Pix</td>
+                                <td>R$ 2.000,00</td>
+                                <td class="text-end">
+                                    <button class="btn btn-sm btn-outline-secondary">Editar</button>
+                                    <button class="btn btn-sm btn-outline-secondary">Excluir</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>14/09</td>
+                                <td>Arthur J.</td>
+                                <td>Pedido #127 - corrimão</td>
+                                <td>2x Crédito</td>
+                                <td>R$ 1.000,00</td>
+                                <td class="text-end">
+                                    <button class="btn btn-sm btn-outline-secondary">Editar</button>
+                                    <button class="btn btn-sm btn-outline-secondary">Excluir</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>10/09</td>
+                                <td>Antonio Pinda</td>
+                                <td>Pedido #126 - portão</td>
+                                <td>Pix</td>
+                                <td>R$ 1.000,00</td>
+                                <td class="text-end">
+                                    <button class="btn btn-sm btn-outline-secondary">Editar</button>
+                                    <button class="btn btn-sm btn-outline-secondary">Excluir</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>08/09</td>
+                                <td>Jane Rocha</td>
+                                <td>Pedido #125 - carrinho</td>
+                                <td>Dinheiro</td>
+                                <td>R$ 7.000,00</td>
+                                <td class="text-end">
+                                    <button class="btn btn-sm btn-outline-secondary">Editar</button>
+                                    <button class="btn btn-sm btn-outline-secondary">Excluir</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>07/09</td>
+                                <td>Sandro</td>
+                                <td>Pedido #124 - manutenção</td>
+                                <td>Débito</td>
+                                <td>R$ 1.000,00</td>
+                                <td class="text-end">
+                                    <button class="btn btn-sm btn-outline-secondary">Editar</button>
+                                    <button class="btn btn-sm btn-outline-secondary">Excluir</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>05/09</td>
+                                <td>Lucas</td>
+                                <td>Pedido #123 - escada</td>
+                                <td>Dinheiro</td>
+                                <td>R$ 2.000,00</td>
+                                <td class="text-end">
+                                    <button class="btn btn-sm btn-outline-secondary">Editar</button>
+                                    <button class="btn btn-sm btn-outline-secondary">Excluir</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>02/09</td>
+                                <td>Fernando</td>
+                                <td>Pedido #122 - caixote</td>
+                                <td>Pix</td>
+                                <td>R$ 1.000,00</td>
+                                <td class="text-end">
+                                    <button class="btn btn-sm btn-outline-secondary">Editar</button>
+                                    <button class="btn btn-sm btn-outline-secondary">Excluir</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+ 
+                <!-- Aba Saídas (a tela ainda não foi desenhada) -->
+                <div class="tab-pane fade" id="aba-saidas" role="tabpanel">
+
+    <form class="row g-3 align-items-end mb-3">
+        <div class="col-md-3">
+            <label for="busca-saida" class="form-label">Buscar</label>
+            <input type="text" id="busca-saida" class="form-control form-control-sm w-100">
+        </div>
+        <div class="col-md-2">
+            <label for="saida-de" class="form-label">De</label>
+            <input type="date" id="saida-de" class="form-control form-control-sm w-100">
+        </div>
+        <div class="col-md-2">
+            <label for="saida-ate" class="form-label">Até</label>
+            <input type="date" id="saida-ate" class="form-control form-control-sm w-100">
+        </div>
+        <div class="col-md-2">
+            <button type="reset" class="btn btn-sm btn-outline-secondary">Limpar Filtros</button>
+        </div>
+    </form>
+
+    <table class="table align-middle">
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>Destinatário</th>
+                <th>Referência</th>
+                <th>Forma</th>
+                <th>Categoria</th>
+                <th>Valor</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>16/09</td>
+                <td>Coferpa</td>
+                <td>Pagamento #128 - 2 barra metalon 2x2</td>
+                <td>Pix</td>
+                <td>Salário</td>
+                <td>R$ 1.000,00</td>
+                <td class="text-end">
+                    <button class="btn btn-sm btn-outline-secondary">Editar</button>
+                    <button class="btn btn-sm btn-outline-secondary">Excluir</button>
+                </td>
+            </tr>
+            <tr>
+                <td>14/09</td>
+                <td>Vandinel Lopes</td>
+                <td>Pagamento #127 - 1 caixa eletrodo</td>
+                <td>Débito</td>
+                <td>Desp Mensais</td>
+                <td>R$ 500,00</td>
+                <td class="text-end">
+                    <button class="btn btn-sm btn-outline-secondary">Editar</button>
+                    <button class="btn btn-sm btn-outline-secondary">Excluir</button>
+                </td>
+            </tr>
+            <tr>
+                <td>10/09</td>
+                <td>Antonio Vaz</td>
+                <td>Pagamento #126 - aluguel do mês</td>
+                <td>Pix</td>
+                <td>Máquinas</td>
+                <td>R$ 1.000,00</td>
+                <td class="text-end">
+                    <button class="btn btn-sm btn-outline-secondary">Editar</button>
+                    <button class="btn btn-sm btn-outline-secondary">Excluir</button>
+                </td>
+            </tr>
+            <tr>
+                <td>08/09</td>
+                <td>Daniel Melo</td>
+                <td>Pagamento #125 - 10 discos flap</td>
+                <td>Pix</td>
+                <td>Sem Categoria</td>
+                <td>R$ 500,00</td>
+                <td class="text-end">
+                    <button class="btn btn-sm btn-outline-secondary">Editar</button>
+                    <button class="btn btn-sm btn-outline-secondary">Excluir</button>
+                </td>
+            </tr>
+            <tr>
+                <td>07/09</td>
+                <td>Casa da Ferramenta</td>
+                <td>Pagamento #124 - manutenção furadeira</td>
+                <td>Débito</td>
+                <td>Sem Categoria</td>
+                <td>R$ 500,00</td>
+                <td class="text-end">
+                    <button class="btn btn-sm btn-outline-secondary">Editar</button>
+                    <button class="btn btn-sm btn-outline-secondary">Excluir</button>
+                </td>
+            </tr>
+            <tr>
+                <td>05/09</td>
+                <td>Coferpa</td>
+                <td>Pagamento #123 - chapa 20x30 inox</td>
+                <td>Dinheiro</td>
+                <td>Sem Categoria</td>
+                <td>R$ 1.000,00</td>
+                <td class="text-end">
+                    <button class="btn btn-sm btn-outline-secondary">Editar</button>
+                    <button class="btn btn-sm btn-outline-secondary">Excluir</button>
+                </td>
+            </tr>
+            <tr>
+                <td>02/09</td>
+                <td>Richard Xand</td>
+                <td>Pagamento #123 - latas de tinta</td>
+                <td>Dinheiro</td>
+                <td>Sem Categoria</td>
+                <td>R$ 500,00</td>
+                <td class="text-end">
+                    <button class="btn btn-sm btn-outline-secondary">Editar</button>
+                    <button class="btn btn-sm btn-outline-secondary">Excluir</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+            </div>
+
+            <div class="modal fade" id="modalNovaEntrada" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-nova">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h6 class="modal-title">Nova Entrada</h6>
+            </div>
+            <div class="modal-body">
+                <form class="row g-3" method="post" enctype="multipart/form-data">
+                    <div class="col-6">
+                        <label for="nova-data" class="form-label">Data de emissão</label>
+                        <input type="date" id="nova-data" class="form-control w-100">
+                    </div>
+                    <div class="col-6">
+                        <label for="nova-forma" class="form-label">Forma</label>
+                        <select id="nova-forma" class="form-select w-100">
+                            <option value="">Selecione</option>
+                            <option>Pix</option>
+                            <option>Dinheiro</option>
+                            <option>Débito</option>
+                            <option>Crédito</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <label for="nova-cliente" class="form-label">Cliente</label>
+                        <input type="text" id="nova-cliente" class="form-control w-100">
+                    </div>
+                    <div class="col-12">
+                        <label for="nova-referencia" class="form-label">Referência</label>
+                        <input type="text" id="nova-referencia" class="form-control w-100">
+                    </div>
+                    
+
+                    <div class="col-6">
+                        <label for="nova-valor" class="form-label">Valor (R$)</label>
+                        <input type="number" step="0.01" id="nova-valor" class="form-control w-100">
+                    </div>
+                    <div class="col-6 d-flex align-items-end justify-content-end gap-2">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-laranja">Salvar nota</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Nova Saída -->
+<div class="modal fade" id="modalNovaSaida" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-nova">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title">Nova Saída</h6>
+            </div>
+            <div class="modal-body">
+                <form class="row g-3" method="post" enctype="multipart/form-data">
+                    <div class="col-6">
+                        <label for="saida-data" class="form-label">Data de emissão</label>
+                        <input type="date" id="saida-data" class="form-control w-100">
+                    </div>
+                    <div class="col-6">
+                        <label for="saida-forma" class="form-label">Forma</label>
+                        <select id="saida-forma" class="form-select w-100">
+                            <option value="">Selecione</option>
+                            <option>Pix</option>
+                            <option>Dinheiro</option>
+                            <option>Débito</option>
+                            <option>Crédito</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <label for="saida-destinatario" class="form-label">Destinatário</label>
+                        <input type="text" id="saida-destinatario" class="form-control w-100"
+                            placeholder="Nome do destinatário">
+                    </div>
+                    <div class="col-12">
+                        <label for="saida-referencia" class="form-label">Referência</label>
+                        <input type="text" id="saida-referencia" class="form-control w-100"
+                            placeholder="Pagamento #128">
+                    </div>
+                    
+                    <div class="col-6">
+                        <label for="saida-valor" class="form-label">Valor (R$)</label>
+                        <input type="number" step="0.01" id="saida-valor" class="form-control w-100">
+                    </div>
+                    <div class="col-6">
+                        <label for="saida-categoria" class="form-label">Categoria</label>
+                        <select id="saida-categoria" class="form-select w-100">
+                            <option>Sem Categoria</option>
+                            <option>Salário</option>
+                            <option>Desp Mensais</option>
+                            <option>Máquinas</option>
+                        </select>
+                    </div>
+                    <div class="col-6">
+                        <button type="button" class="btn btn-light w-100" data-bs-dismiss="modal">Cancelar</button>
+                    </div>
+                    <div class="col-6">
+                        <button type="submit" class="btn btn-laranja w-100">Salvar nota</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Editar Entrada -->
+<div class="modal fade" id="modalEditarEntrada" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-nova">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title">Editar Entrada</h6>
+            </div>
+            <div class="modal-body">
+                <form class="row g-3" method="post" enctype="multipart/form-data">
+                    <div class="col-6">
+                        <label for="edit-ent-data" class="form-label">Data de emissão</label>
+                        <input type="date" id="edit-ent-data" class="form-control w-100" value="2026-09-16">
+                    </div>
+                    <div class="col-6">
+                        <label for="edit-ent-forma" class="form-label">Forma</label>
+                        <select id="edit-ent-forma" class="form-select w-100">
+                            <option selected>Pix</option>
+                            <option>Dinheiro</option>
+                            <option>Débito</option>
+                            <option>Crédito</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <label for="edit-ent-cliente" class="form-label">Cliente</label>
+                        <input type="text" id="edit-ent-cliente" class="form-control w-100" value="Julio Pintor">
+                    </div>
+                    <div class="col-12">
+                        <label for="edit-ent-referencia" class="form-label">Referência</label>
+                        <input type="text" id="edit-ent-referencia" class="form-control w-100"
+                            value="Pedido #128 - grade">
+                    </div>
+                    
+                    <div class="col-12">
+                        <label for="edit-ent-valor" class="form-label">Valor (R$)</label>
+                        <input type="number" step="0.01" id="edit-ent-valor" class="form-control w-100"
+                            value="2000.00">
+                    </div>
+                    <div class="col-6">
+                        <button type="button" class="btn btn-light w-100" data-bs-dismiss="modal">Cancelar</button>
+                    </div>
+                    <div class="col-6">
+                        <button type="submit" class="btn btn-laranja w-100">Salvar alterações</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Editar Saída -->
+<div class="modal fade" id="modalEditarSaida" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-nova">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title">Editar Saída</h6>
+            </div>
+            <div class="modal-body">
+                <form class="row g-3" method="post" enctype="multipart/form-data">
+                    <div class="col-6">
+                        <label for="edit-sai-data" class="form-label">Data de emissão</label>
+                        <input type="date" id="edit-sai-data" class="form-control w-100" value="2026-09-16">
+                    </div>
+                    <div class="col-6">
+                        <label for="edit-sai-forma" class="form-label">Forma</label>
+                        <select id="edit-sai-forma" class="form-select w-100">
+                            <option selected>Pix</option>
+                            <option>Dinheiro</option>
+                            <option>Débito</option>
+                            <option>Crédito</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <label for="edit-sai-destinatario" class="form-label">Destinatário</label>
+                        <input type="text" id="edit-sai-destinatario" class="form-control w-100" value="Coferpa">
+                    </div>
+                    <div class="col-12">
+                        <label for="edit-sai-referencia" class="form-label">Referência</label>
+                        <input type="text" id="edit-sai-referencia" class="form-control w-100"
+                            value="Pagamento #128 - 2 barra metalon 2x2">
+                    </div>
+                    
+                    <div class="col-6">
+                        <label for="edit-sai-valor" class="form-label">Valor (R$)</label>
+                        <input type="number" step="0.01" id="edit-sai-valor" class="form-control w-100"
+                            value="1000.00">
+                    </div>
+                    <div class="col-6">
+                        <label for="edit-sai-categoria" class="form-label">Categoria</label>
+                        <select id="edit-sai-categoria" class="form-select w-100">
+                            <option>Sem Categoria</option>
+                            <option selected>Salário</option>
+                            <option>Desp Mensais</option>
+                            <option>Máquinas</option>
+                        </select>
+                    </div>
+                    <div class="col-6">
+                        <button type="button" class="btn btn-light w-100" data-bs-dismiss="modal">Cancelar</button>
+                    </div>
+                    <div class="col-6">
+                        <button type="submit" class="btn btn-laranja w-100">Salvar alterações</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 
         </section>
     </main>
@@ -81,6 +576,9 @@
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" ...></script>
+    <script src="js/script.js"></script>
+    <script src="js/entradas_saidas.js"></script>
 </body>
-
+ 
 </html>
