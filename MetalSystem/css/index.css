@@ -1,86 +1,93 @@
-/* =====================================================
-   VALORES DO FIGMA: ajuste só aqui, no topo do arquivo
-   ===================================================== */
 :root {
-  /* Cores */
-  --fundo-pagina: #0E0E0E;     /* fundo preto atrás do cartão */
-  --fundo-painel: #2B2B2B;     /* painel cinza escuro do formulário */
-  --laranja: #F97316;          /* botão Entrar e detalhes */
-  --laranja-hover: #EA6A0A;
+  /* Cores: valores aproximados do Figma. Confira com o conta-gotas. */
+  --fundo-pagina: #000000;     /* fundo atrás do cartão */
+  --fundo-painel: #17191B;     /* painel do formulário */
+  --laranja: #FF7800;
+  --laranja-hover: #FF7800;
   --texto: #FFFFFF;
-  --texto-suave: #A3A3A3;      /* slogan, subtítulo, placeholder */
-  --fundo-campo: #3A3A3A;
-  --borda-campo: #4F4F4F;
+  --texto-suave: #A3A3A3;
+  --fundo-campo: #1f2124;
+  --borda-campo: #33363a;
   --erro: #F87171;
 
-  /* Tamanhos */
-  --largura-cartao: 1000px;
-  --altura-cartao: 600px;
-  --largura-imagem: 38%;       /* parte da largura que a foto ocupa */
+  /* Tamanho do cartão: ESTES DOIS NÚMEROS controlam o "menor" ou "maior" */
+  --largura-cartao: 850px;    /* largura máxima */
+  --altura-cartao: 750px;      /* altura máxima */
+  /* Na prática o cartão nunca passa de 92% da largura nem de 90% da altura da janela */
+  --alt: min(90vh, var(--altura-cartao));
+
   --largura-form: 340px;
-  --logo-largura: 180px;
-
-  /* Texto */
-  --fonte: 'Inter', sans-serif;
+  --logo-largura: 210px;
   --tam-titulo: 28px;
-  --tam-texto: 14px;
 
-  /* Cantos retos, como no projeto */
-  --raio: 0;
+  --fonte: 'Outfit', sans-serif;
+  --fonte-titulo: 'Outfit', sans-serif;   /* se o Figma usar outra fonte nos títulos, troque aqui */
+  --raio: 0;                             /* cantos retos */
 }
 
 /* ---------- Base ---------- */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  font-family: var(--fonte);
-  font-size: var(--tam-texto);
+  height: 100vh;               /* exatamente a altura da janela: sem barra de rolagem */
+  display: flex;
+  align-items: center;         /* centraliza o cartão na vertical */
+  justify-content: center;     /* e na horizontal */
   background: var(--fundo-pagina);
   color: var(--texto);
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
+  font-family: var(--fonte);
+  font-size: 14px;
 }
 
-/* ---------- Cartão (imagem + painel) ---------- */
+/* ---------- Cartão ---------- */
 .login {
   display: flex;
-  width: 100%;
-  max-width: var(--largura-cartao);
-  min-height: var(--altura-cartao);
+  width: min(92vw, var(--largura-cartao));   /* min() escolhe o menor: 92% da janela OU 1100px */
+  height: var(--alt);
+  overflow: hidden;
 }
 
-/* ---------- Parte 1: imagem ---------- */
-.login__imagem { flex: 0 0 var(--largura-imagem); }
+/* ---------- Parte 1: foto ---------- */
+.login__imagem { position: relative; flex: 0 0 auto; }
 .login__imagem img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;           /* a foto preenche sem distorcer */
   display: block;
+  height: var(--alt);          /* a foto ocupa a altura do cartão... */
+  width: auto;                 /* ...e a largura se ajusta sozinha: nada cortado nem esticado */
+  max-width: 50vw;
+  object-fit: cover;
+}
+/* A "sombra": um degradê por cima da foto. Até 65% da largura não muda nada (transparent);
+   daí até o fim vai ficando da cor do painel. É isso que faz a foto parecer parte do cartão. */
+.login__imagem::after {
+  content: "";
+  position: absolute;
+  inset: 0;                    /* cobre a foto inteira */
+  background: linear-gradient(to right, transparent 65%, var(--fundo-painel));
+  pointer-events: none;
 }
 
 /* ---------- Parte 2: painel ---------- */
 .login__painel {
   flex: 1;
-  background: var(--fundo-painel);
+  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 40px;
-  padding: 48px 32px;
+  gap: 36px;
+  padding: 32px;
+  background: var(--fundo-painel);
+  overflow-y: auto;            /* se a janela for muito baixa, rola só o painel */
 }
 
 /* 2.1 Logo + slogan */
 .login__marca { text-align: center; }
 .login__logo { width: var(--logo-largura); height: auto; display: block; margin: 0 auto 8px; }
-.login__slogan { color: var(--texto-suave); font-size: 13px; }
+.login__slogan { color: var(--texto-suave); font-family: var(--fonte-titulo); font-size: 13px; }
 
 /* 2.2 Formulário */
 .login__form { width: 100%; max-width: var(--largura-form); }
-.login__titulo { font-size: var(--tam-titulo); font-weight: 700; }
+.login__titulo { font-family: var(--fonte-titulo); font-size: var(--tam-titulo); font-weight: 700; }
 .login__subtitulo { color: var(--texto-suave); margin: 4px 0 24px; }
 
 .campo { margin-bottom: 16px; }
@@ -99,24 +106,24 @@ body {
 
 .login__erro { color: var(--erro); font-size: 13px; margin-bottom: 12px; }
 
+/* ---------- Botão Entrar ----------
+   Use SÓ o link, sem <button> em volta:
+   <a href="inicio.html" class="botao">Entrar</a> */
 .botao {
+  display: block;
   width: 100%;
   margin-top: 8px;
   padding: 13px;
-  background: var(--laranja);
+  text-align: center;
+  text-decoration: none;
   color: var(--texto);
+  background: var(--laranja);
   border: 0;
   border-radius: var(--raio);
   font: inherit;
   font-weight: 700;
   cursor: pointer;
+  box-shadow: 0 0 14px rgba(249, 115, 22, .45);
 }
-.botao:hover { background: var(--laranja-hover); }
+.botao:hover { background: var(--laranja-hover); color: var(--texto); }
 .botao:focus-visible { outline: 2px solid var(--texto); outline-offset: 2px; }
-
-/* ---------- Celular: esconde a foto ---------- */
-@media (max-width: 760px) {
-  body { padding: 0; }
-  .login { min-height: 100vh; }
-  .login__imagem { display: none; }
-}

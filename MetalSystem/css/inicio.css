@@ -27,19 +27,6 @@
         align-items: center;
         padding-right: 25px;
     }
-    .topo-direita { display: flex; align-items: center; gap: 16px; }
-    .data-hoje { font-size: 13px; color: var(--texto-suave); }
-
-    .icone-btn {
-        position: relative;
-        border: 0;
-        background: none;
-        padding: 4px 6px;
-        font-size: 22px;
-        color: var(--texto-suave);
-    }
-    .icone-btn:hover { color: var(--laranja); }
-    .ponto { position: absolute; top: 3px; right: 3px; width: 8px; height: 8px; background: var(--laranja); }
 
     .usuario {
         display: flex;
@@ -63,13 +50,13 @@
     .usuario-texto strong { display: block; font-size: 14px; }
     .usuario-texto small { font-size: 12px; color: var(--texto-suave); }
 
-    /* Caixas que abrem ao clicar no sino e no usuário */
+    /* Caixa que abre ao clicar na foto do usuário */
     .menu-suspenso { position: relative; }
     .suspenso {
         position: absolute;
         right: 0;
         top: calc(100% + 10px);
-        width: 280px;
+        width: 190px;              /* menor, já que agora tem só uma opção */
         z-index: 20;
         background: #ffffff;
         border: 1px solid var(--borda);
@@ -86,18 +73,11 @@
     }
     .suspenso a:last-child { border-bottom: 0; }
     .suspenso a:hover { background: var(--suave); }
-    .suspenso-titulo {
-        padding: 10px 16px;
-        font-size: 12px;
-        font-weight: 700;
-        text-transform: uppercase;
-        color: var(--texto-suave);
-        background: var(--suave);
-        border-bottom: 1px solid var(--borda);
-    }
 
     /* ---------- Título e subtítulo ---------- */
     .subtitulo { padding: 0 40px; margin: -8px 0 0; color: var(--texto-suave); }
+
+    /* Cores de apoio. Use class="bom" (verde), "ruim" (vermelho), "alerta" (âmbar), "destaque" (laranja) */
     .destaque { color: var(--laranja); }
     .bom { color: var(--verde); }
     .ruim { color: var(--vermelho); }
@@ -129,7 +109,8 @@
     .kpi-rotulo i { font-size: 18px; color: var(--laranja); }
     .kpi-valor { margin: 4px 0; font-size: 24px; font-weight: 700; }
     .kpi-destaque { color: var(--laranja); }
-    .kpi-variacao { font-size: 13px; color: var(--texto-suave); }
+    .kpi-variacao { font-size: 13px; color: var(--texto-suave); }   /* cor cinza do texto todo... */
+    .kpi-variacao span { font-weight: 700; }                        /* ...e só o <span> do número fica em negrito e colorido (.bom / .ruim) */
 
     /* ---------- Ações rápidas ---------- */
     .acoes { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
@@ -224,9 +205,9 @@
     }
     .atencao a:last-child { border-bottom: 0; }
     .atencao a:hover { background: var(--suave); }
-    .atencao i, .suspenso i { color: var(--laranja); }
+    .atencao i { color: var(--laranja); }
 
     /* ---------- Telas menores ---------- */
     @media (max-width: 1100px) { .grade { grid-template-columns: 1fr; } }
-    @media (max-width: 800px) { .data-hoje, .usuario-texto { display: none; } }
+    @media (max-width: 800px) { .usuario-texto { display: none; } }
 }

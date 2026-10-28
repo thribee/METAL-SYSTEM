@@ -23,7 +23,7 @@ const movimentos = {
     despesas: [1500,  2000, 1800,  2500,  1900,  3000,  3500]
 };
 
-// Usada no painel "Precisa de atenção" E no sino.
+// Usada no painel "Precisa de atenção".
 const avisos = [
     { texto: '3 orçamentos aguardando resposta', link: 'orcamentos.html' },
     { texto: '1 nota fiscal pendente',           link: 'documentos.html' },
@@ -39,7 +39,7 @@ const esc = t => String(t).replace(/[&<>"']/g, c => ({
 const moeda = v => 'R$ ' + v.toLocaleString('pt-BR');       // 24607 -> "R$ 24.607"
 const $ = id => document.getElementById(id);                 // atalho para getElementById
 
-// ---------- 3) SAUDAÇÃO, DATA E USUÁRIO ----------
+// ---------- 3) SAUDAÇÃO E USUÁRIO ----------
 const hora = new Date().getHours();
 const saudacao = hora < 12 ? 'Bom dia' : hora < 18 ? 'Boa tarde' : 'Boa noite';
 
@@ -50,9 +50,6 @@ nome.className = 'destaque';
 nome.textContent = usuario.nome.split(' ')[0];               // só o primeiro nome
 titulo.appendChild(nome);
 
-$('dataHoje').textContent = new Date().toLocaleDateString('pt-BR', {
-    weekday: 'short', day: 'numeric', month: 'long', year: 'numeric'
-});
 $('avatar').textContent = usuario.nome[0];
 $('nomeUsuario').textContent = usuario.nome;
 $('empresaUsuario').textContent = usuario.empresa;
@@ -89,23 +86,20 @@ $('grafico').innerHTML = movimentos.dias.map((dia, i) => `
         <small>${dia}</small>
     </div>`).join('');
 
-// ---------- 6) AVISOS (painel e sino usam a mesma lista) ----------
-const itensAvisos = avisos
+// ---------- 6) AVISOS ("Precisa de atenção") ----------
+$('painelAvisos').innerHTML = avisos
     .map(a => `<a href="${a.link}">${esc(a.texto)} <i class="bi bi-arrow-right"></i></a>`)
     .join('');
-$('painelAvisos').innerHTML = itensAvisos;
-$('menuAvisos').innerHTML = '<div class="suspenso-titulo">Avisos</div>' + itensAvisos;
 
-// ---------- 7) MENUS QUE ABREM AO CLICAR (sino e usuário) ----------
-const menus = [['btnAvisos', 'menuAvisos'], ['btnUsuario', 'menuUsuario']];
-const fecharTodos = () => menus.forEach(([, menu]) => { $(menu).hidden = true; });
+// ---------- 7) MENU DO USUÁRIO (abre ao clicar na foto) ----------
+const btnUsuario = $('btnUsuario');
+const menuUsuario = $('menuUsuario');
 
-menus.forEach(([botao, menu]) => {
-    $(botao).addEventListener('click', e => {
-        e.stopPropagation();                  // evita que o clique feche o menu na hora
-        const estavaAberto = !$(menu).hidden;
-        fecharTodos();
-        $(menu).hidden = estavaAberto;        // se estava aberto, fica fechado; senão, abre
-    });
+btnUsuario.addEventListener('click', e => {
+    e.stopPropagation();                         // o clique não "sobe" e não fecha o menu na hora
+    menuUsuario.hidden = !menuUsuario.hidden;    // "!" inverte: se estava fechado abre, se aberto fecha
 });
-document.addEventListener('click', fecharTodos);   // clicar fora fecha
+
+document.addEventListener('click', () => {      // clicar em qualquer outro lugar fecha o menu
+    menuUsuario.hidden = true;
+});

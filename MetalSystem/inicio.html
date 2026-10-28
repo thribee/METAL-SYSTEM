@@ -79,72 +79,62 @@
     </nav>
 
     <main>
-        <!-- ===== BARRA SUPERIOR: busca à esquerda, avisos e usuário à direita ===== -->
+        <!-- ===== BARRA SUPERIOR: busca à esquerda e usuário à direita ===== -->
+        <!-- (removidos: a data, o sino de avisos e o botão Sair do menu do usuário) -->
         <header>
             <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search" />
 
-            <div class="topo-direita">
-                <!-- O JS escreve a data de hoje aqui -->
-                <span class="data-hoje" id="dataHoje"></span>
-
-                <!-- Sino: o JS preenche a lista de avisos dentro de #menuAvisos -->
-                <div class="menu-suspenso">
-                    <button class="icone-btn" id="btnAvisos" aria-label="Avisos">
-                        <i class="bi bi-bell"></i><span class="ponto"></span>
-                    </button>
-                    <div class="suspenso" id="menuAvisos" hidden></div>
-                </div>
-
-                <!-- Usuário: o JS escreve inicial, nome e empresa -->
-                <div class="menu-suspenso">
-                    <button class="usuario" id="btnUsuario" aria-label="Menu do usuário">
-                        <span class="avatar-usuario" id="avatar"></span>
-                        <span class="usuario-texto">
-                            <strong id="nomeUsuario"></strong>
-                            <small id="empresaUsuario"></small>
-                        </span>
-                    </button>
-                    <div class="suspenso" id="menuUsuario" hidden>
-                        <a href="#">Alterar senha</a>
-                        <a href="index.html">Sair</a>
-                    </div>
+            <!-- Usuário: o JS escreve inicial, nome e empresa -->
+            <div class="menu-suspenso">
+                <button class="usuario" id="btnUsuario" aria-label="Menu do usuário">
+                    <span class="avatar-usuario" id="avatar"></span>
+                    <span class="usuario-texto">
+                        <strong id="nomeUsuario"></strong>
+                        <small id="empresaUsuario"></small>
+                    </span>
+                </button>
+                <div class="suspenso" id="menuUsuario" hidden>
+                    <a href="#">Alterar senha</a>
                 </div>
             </div>
         </header>
 
-        <!-- Título "Bom dia, Carlos" (escrito pelo JS) -->
+        <!-- Título "Bom dia, Elias" (escrito pelo JS) -->
         <h1 class="main-title" id="saudacao"></h1>
         <p class="subtitulo">Resumo das principais informações do seu negócio</p>
 
         <section class="content">
 
-            <!-- ===== Cards de números ===== -->
+            <!-- ===== Cards de números =====
+                 Só o NÚMERO fica colorido (dentro de <span>):
+                 class="bom"  = verde (bom para o negócio)
+                 class="ruim" = vermelho (ruim para o negócio) -->
             <div class="kpis">
                 <article class="kpi">
                     <div class="kpi-rotulo">Clientes <i class="bi bi-people"></i></div>
                     <div class="kpi-valor">120</div>
-                    <div class="kpi-variacao bom">+5 novos este mês</div>
+                    <div class="kpi-variacao"><span class="bom">+5</span> novos este mês</div>
                 </article>
                 <article class="kpi">
                     <div class="kpi-rotulo">Entradas <i class="bi bi-graph-up-arrow"></i></div>
                     <div class="kpi-valor">R$ 24.607,00</div>
-                    <div class="kpi-variacao bom">+12% vs. mês anterior</div>
+                    <div class="kpi-variacao"><span class="bom">+12%</span> vs. mês anterior</div>
                 </article>
                 <article class="kpi">
                     <div class="kpi-rotulo">Saídas <i class="bi bi-graph-down-arrow"></i></div>
                     <div class="kpi-valor">R$ 11.506,00</div>
-                    <div class="kpi-variacao">+8% vs. mês anterior</div>
+                    <div class="kpi-variacao"><span class="ruim">+8%</span> vs. mês anterior</div>
                 </article>
                 <article class="kpi">
                     <div class="kpi-rotulo">Despesas <i class="bi bi-wallet2"></i></div>
                     <div class="kpi-valor">R$ 3.400,00</div>
                     <!-- Despesa caindo é bom, por isso verde -->
-                    <div class="kpi-variacao bom">−6% vs. mês anterior</div>
+                    <div class="kpi-variacao"><span class="bom">−6%</span> vs. mês anterior</div>
                 </article>
                 <article class="kpi">
                     <div class="kpi-rotulo">Lucro <i class="bi bi-currency-dollar"></i></div>
                     <div class="kpi-valor kpi-destaque">R$ 5.400,00</div>
-                    <div class="kpi-variacao bom">+5% vs. mês anterior</div>
+                    <div class="kpi-variacao"><span class="bom">+5%</span> vs. mês anterior</div>
                 </article>
             </div>
 
@@ -213,7 +203,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
-    <!-- script.js (do seu amigo): pinta de laranja o item do menu da página atual -->
     <script src="js/script.js"></script>
     <!-- inicio.js: preenche esta tela -->
     <script src="js/inicio.js"></script>
