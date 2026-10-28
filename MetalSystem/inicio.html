@@ -1,211 +1,211 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!DOCTYPE html> <!-- Avisa ao navegador que este arquivo é HTML5. Sempre a 1ª linha -->
+<html lang="pt-BR"> <!-- Abre o documento. lang="pt-BR" = texto em português do Brasil -->
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Início | Metal System</title>
+<head> <!-- Cabeçalho: informações da página que não aparecem na tela -->
+    <meta charset="UTF-8"> <!-- Codificação: faz acentos e "ç" aparecerem certos -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ajusta a página à largura do aparelho -->
+    <title>Início | Metal System</title> <!-- Texto da aba do navegador -->
 
     <!-- Bootstrap e ícones:-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous"> <!-- Carrega o CSS do Bootstrap pela internet. "integrity" confere se o arquivo não foi alterado (segurança) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"> <!-- Carrega os ícones (classes "bi bi-...") -->
 
     <!-- 1º o estilo comum do grupo (sidebar, header, títulos)... -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css"> <!-- Estilos que todo o grupo usa. Vem primeiro para o da página poder sobrescrever -->
     <!-- 2º o estilo só desta página (tudo dentro de .pag-inicio) -->
-    <link rel="stylesheet" href="css/inicio.css">
-</head>
+    <link rel="stylesheet" href="css/inicio.css"> <!-- Estilos só da tela inicial -->
+</head> <!-- Fecha o cabeçalho -->
 
 <!-- A classe "pag-inicio" no body é o que faz o inicio.css valer só nesta página -->
-<body class="pag-inicio">
+<body class="pag-inicio"> <!-- Abre o corpo (tudo que aparece). A classe é o "crachá" que o inicio.css usa -->
 
     <!-- ===== SIDEBAR: ===== -->
-    <nav class="sidebar">
-        <img src="img/logo.png" alt="Logotipo">
-        <ul class="list">
-            <li>
-                <a href="inicio.html">
-                    <i class="bi bi-house-door icons"></i>
-                    Início
-                </a>
-            </li>
-            <p class="word">Operacional</p>
-            <li>
-                <a href="clientes.html">
-                    <i class="bi bi-people icons"></i>
-                    Clientes
-                </a>
-            </li>
-            <li>
-                <a href="orcamentos.html">
-                    <i class="bi bi-file-earmark-spreadsheet icons"></i>
-                    Orçamentos
-                </a>
-            </li>
-            <li>
-                <a href="documentos.html">
-                    <i class="bi bi-file-earmark-text icons"></i>
-                    Documentos
-                </a>
-            </li>
-            <p class="word">Financeiro</p>
-            <li>
-                <a href="entradas_saidas.html">
-                    <i class="bi bi-file-earmark-diff icons"></i>
-                    Entradas e Saídas
-                </a>
-            </li>
-            <li>
-                <a href="despesas.html">
-                    <i class="bi bi-credit-card icons"></i>
-                    Despesas
-                </a>
-            </li>
-            <li>
-                <a href="relatorio.html">
-                    <i class="bi bi-cash-coin icons"></i>
-                    Relatório
-                </a>
-            </li>
-            <li class="divisor"></li>
-            <li>
-                <a href="index.html">
-                    <i class="bi bi-box-arrow-right icons"></i>
-                    Sair
-                </a>
-            </li>
-        </ul>
-    </nav>
+    <nav class="sidebar"> <!-- <nav> = área de navegação (menu lateral) -->
+        <img src="img/logo.png" alt="Logotipo"> <!-- Logo no topo do menu. alt descreve a imagem -->
+        <ul class="list"> <!-- <ul> = lista sem numeração. Cada item do menu é um <li> -->
+            <li> <!-- Item do menu: Início -->
+                <a href="inicio.html"> <!-- <a> = link. href é a página de destino -->
+                    <i class="bi bi-house-door icons"></i> <!-- Ícone de casa. <i> aqui só desenha o ícone (classes da biblioteca Bootstrap Icons) -->
+                    Início <!-- Texto visível do item -->
+                </a> <!-- Fecha o link -->
+            </li> <!-- Fecha o item -->
+            <p class="word">Operacional</p> <!-- Título da seção do menu (não é clicável) -->
+            <li> <!-- Item: Clientes -->
+                <a href="clientes.html"> <!-- Leva para a tela de clientes -->
+                    <i class="bi bi-people icons"></i> <!-- Ícone de pessoas -->
+                    Clientes <!-- Texto do item -->
+                </a> <!-- Fecha o link -->
+            </li> <!-- Fecha o item -->
+            <li> <!-- Item: Orçamentos -->
+                <a href="orcamentos.html"> <!-- Destino -->
+                    <i class="bi bi-file-earmark-spreadsheet icons"></i> <!-- Ícone de planilha -->
+                    Orçamentos <!-- Texto -->
+                </a> <!-- Fecha -->
+            </li> <!-- Fecha -->
+            <li> <!-- Item: Documentos -->
+                <a href="documentos.html"> <!-- Destino -->
+                    <i class="bi bi-file-earmark-text icons"></i> <!-- Ícone de documento -->
+                    Documentos <!-- Texto -->
+                </a> <!-- Fecha -->
+            </li> <!-- Fecha -->
+            <p class="word">Financeiro</p> <!-- Título da segunda seção -->
+            <li> <!-- Item: Entradas e Saídas -->
+                <a href="entradas_saidas.html"> <!-- Destino -->
+                    <i class="bi bi-file-earmark-diff icons"></i> <!-- Ícone de documento com +/- -->
+                    Entradas e Saídas <!-- Texto -->
+                </a> <!-- Fecha -->
+            </li> <!-- Fecha -->
+            <li> <!-- Item: Despesas -->
+                <a href="despesas.html"> <!-- Destino -->
+                    <i class="bi bi-credit-card icons"></i> <!-- Ícone de cartão -->
+                    Despesas <!-- Texto -->
+                </a> <!-- Fecha -->
+            </li> <!-- Fecha -->
+            <li> <!-- Item: Relatório -->
+                <a href="relatorio.html"> <!-- Destino -->
+                    <i class="bi bi-cash-coin icons"></i> <!-- Ícone de moedas -->
+                    Relatório <!-- Texto -->
+                </a> <!-- Fecha -->
+            </li> <!-- Fecha -->
+            <li class="divisor"></li> <!-- Item vazio que o CSS transforma em uma linha divisória -->
+            <li> <!-- Item: Sair -->
+                <a href="index.html"> <!-- Volta para o login (index.html) -->
+                    <i class="bi bi-box-arrow-right icons"></i> <!-- Ícone de saída -->
+                    Sair <!-- Texto -->
+                </a> <!-- Fecha -->
+            </li> <!-- Fecha -->
+        </ul> <!-- Fecha a lista do menu -->
+    </nav> <!-- Fecha o menu lateral -->
 
-    <main>
+    <main> <!-- Conteúdo principal da página (tudo à direita do menu) -->
         <!-- ===== BARRA SUPERIOR: busca à esquerda e usuário à direita ===== -->
         <!-- (removidos: a data, o sino de avisos e o botão Sair do menu do usuário) -->
-        <header>
-            <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search" />
+        <header> <!-- Barra do topo -->
+            <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search" /> <!-- Campo de busca. form-control e me-2 são classes do Bootstrap (estilo e margem). aria-label dá nome ao campo para leitores de tela -->
 
             <!-- Usuário: o JS escreve inicial, nome e empresa -->
-            <div class="menu-suspenso">
-                <button class="usuario" id="btnUsuario" aria-label="Menu do usuário">
-                    <span class="avatar-usuario" id="avatar"></span>
-                    <span class="usuario-texto">
-                        <strong id="nomeUsuario"></strong>
-                        <small id="empresaUsuario"></small>
-                    </span>
-                </button>
-                <div class="suspenso" id="menuUsuario" hidden>
-                    <a href="#">Alterar senha</a>
-                </div>
-            </div>
-        </header>
+            <div class="menu-suspenso"> <!-- Caixa que agrupa o botão do usuário e o menu que abre -->
+                <button class="usuario" id="btnUsuario" aria-label="Menu do usuário"> <!-- Botão clicável. id="btnUsuario" é como o JS o encontra -->
+                    <span class="avatar-usuario" id="avatar"></span> <!-- Quadrado laranja. Vazio: o JS escreve a letra inicial -->
+                    <span class="usuario-texto"> <!-- Agrupa nome e empresa -->
+                        <strong id="nomeUsuario"></strong> <!-- Nome (negrito). O JS preenche -->
+                        <small id="empresaUsuario"></small> <!-- Nome da empresa (letra pequena). O JS preenche -->
+                    </span> <!-- Fecha o texto do usuário -->
+                </button> <!-- Fecha o botão -->
+                <div class="suspenso" id="menuUsuario" hidden> <!-- Menu que abre ao clicar. "hidden" o esconde até o JS mostrar -->
+                    <a href="#">Alterar senha</a> <!-- Opção do menu. href="#" = ainda não leva a lugar nenhum -->
+                </div> <!-- Fecha o menu suspenso -->
+            </div> <!-- Fecha o grupo do usuário -->
+        </header> <!-- Fecha a barra superior -->
 
         <!-- Título "Bom dia, Elias" (escrito pelo JS) -->
-        <h1 class="main-title" id="saudacao"></h1>
-        <p class="subtitulo">Resumo das principais informações do seu negócio</p>
+        <h1 class="main-title" id="saudacao"></h1> <!-- Título principal, vazio: o JS escreve "Bom dia, Elias". main-title vem do style.css do grupo -->
+        <p class="subtitulo">Resumo das principais informações do seu negócio</p> <!-- Frase de apoio abaixo do título -->
 
-        <section class="content">
+        <section class="content"> <!-- Área de conteúdo (classe .content do style.css) -->
 
             <!-- ===== Cards de números =====
                  Só o NÚMERO fica colorido (dentro de <span>):
                  class="bom"  = verde (bom para o negócio)
                  class="ruim" = vermelho (ruim para o negócio) -->
-            <div class="kpis">
-                <article class="kpi">
-                    <div class="kpi-rotulo">Clientes <i class="bi bi-people"></i></div>
-                    <div class="kpi-valor">120</div>
-                    <div class="kpi-variacao"><span class="bom">+5</span> novos este mês</div>
-                </article>
-                <article class="kpi">
-                    <div class="kpi-rotulo">Entradas <i class="bi bi-graph-up-arrow"></i></div>
-                    <div class="kpi-valor">R$ 24.607,00</div>
-                    <div class="kpi-variacao"><span class="bom">+12%</span> vs. mês anterior</div>
-                </article>
-                <article class="kpi">
-                    <div class="kpi-rotulo">Saídas <i class="bi bi-graph-down-arrow"></i></div>
-                    <div class="kpi-valor">R$ 11.506,00</div>
-                    <div class="kpi-variacao"><span class="ruim">+8%</span> vs. mês anterior</div>
-                </article>
-                <article class="kpi">
-                    <div class="kpi-rotulo">Despesas <i class="bi bi-wallet2"></i></div>
-                    <div class="kpi-valor">R$ 3.400,00</div>
+            <div class="kpis"> <!-- Caixa que agrupa os 5 cards (o CSS os coloca em grade) -->
+                <article class="kpi"> <!-- <article> = um bloco independente. Este é o card Clientes -->
+                    <div class="kpi-rotulo">Clientes <i class="bi bi-people"></i></div> <!-- Nome do card + ícone no canto -->
+                    <div class="kpi-valor">120</div> <!-- O número grande -->
+                    <div class="kpi-variacao"><span class="bom">+5</span> novos este mês</div> <!-- Variação: o <span class="bom"> pinta só o "+5" de verde -->
+                </article> <!-- Fecha o card -->
+                <article class="kpi"> <!-- Card Entradas -->
+                    <div class="kpi-rotulo">Entradas <i class="bi bi-graph-up-arrow"></i></div> <!-- Nome + ícone de gráfico subindo -->
+                    <div class="kpi-valor">R$ 24.607,00</div> <!-- Valor -->
+                    <div class="kpi-variacao"><span class="bom">+12%</span> vs. mês anterior</div> <!-- +12% em verde (entrou mais dinheiro) -->
+                </article> <!-- Fecha -->
+                <article class="kpi"> <!-- Card Saídas -->
+                    <div class="kpi-rotulo">Saídas <i class="bi bi-graph-down-arrow"></i></div> <!-- Nome + ícone de gráfico descendo -->
+                    <div class="kpi-valor">R$ 11.506,00</div> <!-- Valor -->
+                    <div class="kpi-variacao"><span class="ruim">+8%</span> vs. mês anterior</div> <!-- +8% em vermelho (saiu mais dinheiro) -->
+                </article> <!-- Fecha -->
+                <article class="kpi"> <!-- Card Despesas -->
+                    <div class="kpi-rotulo">Despesas <i class="bi bi-wallet2"></i></div> <!-- Nome + ícone de carteira -->
+                    <div class="kpi-valor">R$ 3.400,00</div> <!-- Valor -->
                     <!-- Despesa caindo é bom, por isso verde -->
-                    <div class="kpi-variacao"><span class="bom">−6%</span> vs. mês anterior</div>
-                </article>
-                <article class="kpi">
-                    <div class="kpi-rotulo">Lucro <i class="bi bi-currency-dollar"></i></div>
-                    <div class="kpi-valor kpi-destaque">R$ 5.400,00</div>
-                    <div class="kpi-variacao"><span class="bom">+5%</span> vs. mês anterior</div>
-                </article>
-            </div>
+                    <div class="kpi-variacao"><span class="bom">−6%</span> vs. mês anterior</div> <!-- −6% em verde (gastou menos) -->
+                </article> <!-- Fecha -->
+                <article class="kpi"> <!-- Card Lucro -->
+                    <div class="kpi-rotulo">Lucro <i class="bi bi-currency-dollar"></i></div> <!-- Nome + ícone de cifrão -->
+                    <div class="kpi-valor kpi-destaque">R$ 5.400,00</div> <!-- Valor. Duas classes: kpi-valor (tamanho) + kpi-destaque (laranja) -->
+                    <div class="kpi-variacao"><span class="bom">+5%</span> vs. mês anterior</div> <!-- +5% em verde -->
+                </article> <!-- Fecha -->
+            </div> <!-- Fecha a grade de cards -->
 
             <!-- ===== Ações rápidas ===== -->
-            <div class="acoes">
-                <a class="btn-acao" href="orcamentos.html"><i class="bi bi-plus-lg"></i> Novo orçamento</a>
-                <a class="btn-acao" href="clientes.html"><i class="bi bi-plus-lg"></i> Novo cliente</a>
-                <a class="btn-acao" href="documentos.html"><i class="bi bi-plus-lg"></i> Novo documento</a>
-            </div>
+            <div class="acoes"> <!-- Linha de atalhos -->
+                <a class="btn-acao" href="orcamentos.html"><i class="bi bi-plus-lg"></i> Novo orçamento</a> <!-- Link com cara de botão. Ícone de "+" e texto -->
+                <a class="btn-acao" href="clientes.html"><i class="bi bi-plus-lg"></i> Novo cliente</a> <!-- Atalho para clientes -->
+                <a class="btn-acao" href="documentos.html"><i class="bi bi-plus-lg"></i> Novo documento</a> <!-- Atalho para documentos -->
+            </div> <!-- Fecha os atalhos -->
 
             <!-- ===== Duas colunas ===== -->
-            <div class="grade">
+            <div class="grade"> <!-- O CSS divide esta caixa em duas colunas -->
 
                 <!-- Esquerda: Resumo de Clientes -->
-                <section class="painel">
-                    <div class="painel-topo">
-                        <span>Resumo de Clientes</span>
-                        <a class="link-laranja" href="clientes.html">Ver Clientes →</a>
-                    </div>
-                    <div class="mini mini-2">
-                        <div><small>Total de clientes</small><strong>125</strong></div>
-                        <div><small>Novos este mês</small><strong>5</strong></div>
-                    </div>
-                    <div class="tabela-wrap">
-                        <table class="tabela-inicio">
-                            <thead><tr><th>Nome</th><th>Telefone</th><th>Cadastro</th></tr></thead>
+                <section class="painel"> <!-- Painel branco da esquerda -->
+                    <div class="painel-topo"> <!-- Faixa cinza do título do painel -->
+                        <span>Resumo de Clientes</span> <!-- Título do painel -->
+                        <a class="link-laranja" href="clientes.html">Ver Clientes →</a> <!-- Link para a tela completa de clientes -->
+                    </div> <!-- Fecha a faixa -->
+                    <div class="mini mini-2"> <!-- Faixa de números pequenos; mini-2 = 2 colunas -->
+                        <div><small>Total de clientes</small><strong>125</strong></div> <!-- Rótulo pequeno + número em destaque -->
+                        <div><small>Novos este mês</small><strong>5</strong></div> <!-- Segundo número -->
+                    </div> <!-- Fecha a faixa de números -->
+                    <div class="tabela-wrap"> <!-- Embrulho da tabela: permite rolar para o lado em telas pequenas -->
+                        <table class="tabela-inicio"> <!-- A tabela -->
+                            <thead><tr><th>Nome</th><th>Telefone</th><th>Cadastro</th></tr></thead> <!-- Cabeçalho: thead = grupo, tr = linha, th = título de coluna -->
                             <!-- O JS cria as linhas aqui -->
-                            <tbody id="tabelaClientes"></tbody>
-                        </table>
-                    </div>
-                </section>
+                            <tbody id="tabelaClientes"></tbody> <!-- Corpo da tabela, vazio. O JS acha pelo id e escreve as linhas -->
+                        </table> <!-- Fecha a tabela -->
+                    </div> <!-- Fecha o embrulho -->
+                </section> <!-- Fecha o painel de clientes -->
 
                 <!-- Direita -->
-                <div class="coluna">
-                    <section class="painel">
-                        <div class="painel-topo">
-                            <span>Resumo de Controle</span>
-                            <a class="link-laranja" href="entradas_saidas.html">Ver Controle →</a>
-                        </div>
-                        <div class="mini">
-                            <div><small>Entradas</small><strong class="bom">R$ 24.607</strong></div>
-                            <div><small>Saídas</small><strong class="ruim">R$ 11.506</strong></div>
-                            <div><small>Despesas</small><strong class="alerta">R$ 3.400</strong></div>
-                            <div><small>Lucro</small><strong class="destaque">R$ 5.400</strong></div>
-                        </div>
-                        <h2 class="grafico-titulo">Movimentações — últimos 7 dias</h2>
+                <div class="coluna"> <!-- Coluna da direita: empilha dois painéis -->
+                    <section class="painel"> <!-- Painel do gráfico -->
+                        <div class="painel-topo"> <!-- Faixa do título -->
+                            <span>Resumo de Controle</span> <!-- Título -->
+                            <a class="link-laranja" href="entradas_saidas.html">Ver Controle →</a> <!-- Link para entradas e saídas -->
+                        </div> <!-- Fecha a faixa -->
+                        <div class="mini"> <!-- Faixa com 4 números -->
+                            <div><small>Entradas</small><strong class="bom">R$ 24.607</strong></div> <!-- Entradas em verde -->
+                            <div><small>Saídas</small><strong class="ruim">R$ 11.506</strong></div> <!-- Saídas em vermelho -->
+                            <div><small>Despesas</small><strong class="alerta">R$ 3.400</strong></div> <!-- Despesas em âmbar -->
+                            <div><small>Lucro</small><strong class="destaque">R$ 5.400</strong></div> <!-- Lucro em laranja -->
+                        </div> <!-- Fecha a faixa -->
+                        <h2 class="grafico-titulo">Movimentações — últimos 7 dias</h2> <!-- Título do gráfico (h2 = título secundário) -->
                         <!-- O JS desenha as barras aqui -->
-                        <div class="grafico" id="grafico"></div>
-                        <div class="legenda">
-                            <span><i class="barra-entrada"></i>Entrada</span>
-                            <span><i class="barra-saida"></i>Saída</span>
-                            <span><i class="barra-despesa"></i>Despesa</span>
-                        </div>
-                    </section>
+                        <div class="grafico" id="grafico"></div> <!-- Área do gráfico, vazia. O JS desenha as barras -->
+                        <div class="legenda"> <!-- Legenda das cores -->
+                            <span><i class="barra-entrada"></i>Entrada</span> <!-- Quadradinho laranja + texto -->
+                            <span><i class="barra-saida"></i>Saída</span> <!-- Quadradinho cinza escuro + texto -->
+                            <span><i class="barra-despesa"></i>Despesa</span> <!-- Quadradinho cinza claro + texto -->
+                        </div> <!-- Fecha a legenda -->
+                    </section> <!-- Fecha o painel do gráfico -->
 
-                    <section class="painel">
-                        <div class="painel-topo"><span>Precisa de atenção</span></div>
+                    <section class="painel"> <!-- Painel de avisos -->
+                        <div class="painel-topo"><span>Precisa de atenção</span></div> <!-- Faixa com o título -->
                         <!-- O JS escreve os avisos aqui -->
-                        <div class="atencao" id="painelAvisos"></div>
-                    </section>
-                </div>
-            </div>
-        </section>
-    </main>
+                        <div class="atencao" id="painelAvisos"></div> <!-- Lista de avisos, vazia. O JS preenche -->
+                    </section> <!-- Fecha o painel de avisos -->
+                </div> <!-- Fecha a coluna da direita -->
+            </div> <!-- Fecha a grade de duas colunas -->
+        </section> <!-- Fecha a área de conteúdo -->
+    </main> <!-- Fecha o conteúdo principal -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
-    <script src="js/script.js"></script>
+        crossorigin="anonymous"></script> <!-- JavaScript do Bootstrap (carregado no fim para não atrasar a página) -->
+    <script src="js/script.js"></script> <!-- Script do grupo: marca o item ativo do menu -->
     <!-- inicio.js: preenche esta tela -->
-    <script src="js/inicio.js"></script>
-</body>
+    <script src="js/inicio.js"></script> <!-- Script desta tela. Vem por último porque precisa que o HTML acima já exista -->
+</body> <!-- Fecha o corpo -->
 
-</html>
+</html> <!-- Fecha o documento -->
