@@ -139,7 +139,7 @@
         gap: 6px;
         padding: 8px 16px;
         border: 1px solid var(--laranja);
-        background: transparent;
+        background: white;
         color: var(--laranja);
         font-weight: 600;
         text-decoration: none;
