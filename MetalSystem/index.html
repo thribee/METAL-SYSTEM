@@ -1,55 +1,55 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login | Metal System</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/index.css">
-</head>
-<body>
+<!DOCTYPE html> <!-- Avisa ao navegador que este arquivo é HTML5. Sempre é a 1ª linha de uma página -->
+<html lang="pt-BR"> <!-- Abre o documento. lang="pt-BR" diz que o texto é português do Brasil (ajuda corretores e leitores de tela) -->
 
-  <main class="login">
+<head> <!-- Abre o cabeçalho: guarda informações da página. Quase nada daqui aparece na tela -->
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres: sem isso, acentos e "ç" aparecem quebrados -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Faz a página usar a largura real do aparelho (necessário para funcionar bem no celular) -->
+    <title>Login | Metal System</title> <!-- O texto que aparece na aba do navegador -->
 
-    <!-- PARTE 1: imagem do soldador (lado esquerdo) -->
-    <section class="login__imagem" aria-hidden="true">
-      <img src="img/index.png" alt="">
-    </section>
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- Abre a conexão com o Google Fonts antes de precisar, para a fonte carregar mais rápido -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"> <!-- Baixa a fonte Inter nos pesos 400 a 800. "display=swap" mostra o texto com fonte reserva enquanto ela carrega -->
 
-    <!-- PARTE 2: painel escuro (lado direito) -->
-    <section class="login__painel">
+    <link rel="stylesheet" href="css/index.css"> <!-- Liga o arquivo de estilos (cores, tamanhos, posições) desta página -->
+</head> <!-- Fecha o cabeçalho -->
 
-      <!-- 2.1 Logo + slogan -->
-      <header class="login__marca">
-        <img class="login__logo" src="img/logo.png" alt="Metal System">
-        <p class="login__slogan">Sua serralheria mais organizada</p>
-      </header>
+<body> <!-- Abre o corpo: tudo que aparece na tela fica aqui dentro -->
 
-      <!-- 2.2 Formulário -->
-      <form class="login__form" id="formLogin">
-        <h1 class="login__titulo">Bem-vindo!</h1>
-        <p class="login__subtitulo">Faça login para acessar o sistema</p>
+    <main class="login"> <!-- <main> é o conteúdo principal da página. class="login" é o nome que o CSS usa para achar e estilizar este bloco (o cartão) -->
 
-        <div class="campo">
-          <label for="usuario">Usuário</label>
-          <input type="text" id="usuario" name="usuario" placeholder="Digite seu usuário" autocomplete="username" required>
-        </div>
+        <!-- ===== COLUNA 1: a foto ===== -->
+        <section class="login__imagem" aria-hidden="true"> <!-- <section> agrupa uma parte da página. aria-hidden="true" esconde dos leitores de tela, porque a foto é só decoração -->
+            <img src="img/index.png" alt=""> <!-- Mostra a foto. src é o caminho do arquivo. alt vazio avisa que a imagem é decorativa -->
+        </section> <!-- Fecha a coluna da foto -->
 
-        <div class="campo">
-          <label for="senha">Senha</label>
-          <input type="password" id="senha" name="senha" placeholder="Digite sua senha" autocomplete="current-password" required>
-        </div>
+        <!-- ===== COLUNA 2: painel escuro ===== -->
+        <section class="login__painel"> <!-- Abre a coluna do painel, que guarda o logo e o formulário -->
 
-        <p class="login__erro" id="erro" role="alert" hidden>Usuário ou senha incorretos.</p>
+            <header class="login__marca"> <!-- Abre o bloco da marca (logo + slogan) -->
+                <img class="login__logo" src="img/logo.png" alt="Metal System"> <!-- O logo. alt descreve a imagem para quem não a enxerga -->
+                <p class="login__slogan">Sua serralheria mais organizada</p> <!-- <p> é um parágrafo. Aqui, o slogan -->
+            </header> <!-- Fecha a marca -->
 
-        <button type="submit" class="botao"> <a href="inicio.html">Entrar</a></button>
-    
-      </form>
+            <form class="login__form"> <!-- <form> é um formulário: agrupa campos que o usuário preenche -->
+                <h1 class="login__titulo">Bem-vindo!</h1> <!-- Título principal. Use só um <h1> por página -->
+                <p class="login__subtitulo">Faça login para acessar o sistema</p> <!-- Texto de apoio abaixo do título -->
 
-    </section>
-  </main>
+                <div class="campo"> <!-- <div> é uma caixa sem significado, usada só para agrupar. Este grupo = rótulo + campo do usuário -->
+                    <label for="usuario">Usuário</label> <!-- Rótulo do campo. for="usuario" liga ao campo de id="usuario": clicar no texto já seleciona a caixa -->
+                    <input type="text" id="usuario" name="usuario" placeholder="Digite seu usuário" autocomplete="username"> <!-- Caixa de texto. id = identificação única (o label e o JS usam). name = nome que o servidor receberá. placeholder = dica cinza. autocomplete = deixa o navegador sugerir o usuário salvo -->
+                </div> <!-- Fecha o grupo do usuário -->
 
-  <script src="js/index.js"></script>
-</body>
-</html>
+                <div class="campo"> <!-- Grupo da senha -->
+                    <label for="senha">Senha</label> <!-- Rótulo da senha, ligado ao campo de id="senha" -->
+                    <input type="password" id="senha" name="senha" placeholder="Digite sua senha" autocomplete="current-password"> <!-- type="password" mostra bolinhas em vez das letras -->
+                </div> <!-- Fecha o grupo da senha -->
+
+                <p class="login__erro" id="erro" role="alert" hidden>Usuário ou senha incorretos.</p> <!-- Mensagem de erro. "hidden" a esconde. Ela só será usada quando o banco de dados existir e o login for de verdade -->
+
+                <a href="inicio.html" class="botao">Entrar</a> <!-- Um link (<a>) com cara de botão (class="botao"). href é o destino ao clicar. Sem <button> em volta -->
+            </form> <!-- Fecha o formulário -->
+
+        </section> <!-- Fecha a coluna do painel -->
+    </main> <!-- Fecha o conteúdo principal -->
+
+</body> <!-- Fecha o corpo -->
+</html> <!-- Fecha o documento -->

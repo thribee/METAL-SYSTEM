@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu Lateral</title>
+    <title>Clientes - Metal System</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
@@ -24,7 +24,7 @@
             </li>
             <p class="word">Operacional</p>
             <li>
-                <a href="clientes.html">
+                <a href="clientes.html" class="active">
                     <i class="bi bi-people icons"></i>
                     Clientes
                 </a>
@@ -69,143 +69,140 @@
             </li>
         </ul>
     </nav>
-        <main>
-            <header>
-                <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search" />
-            </header>
-            <div class="main">
+
+    <main>
         <header class="topbar">
-        <div class="search-global">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
-            <input type="text" placeholder="Pesquisar no sistema...">
-        </div>
-        <div class="user">
-            <svg class="bell" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
-            <div class="avatar">E</div>
-            <div class="user-info">
-            <strong>Elias</strong>
-            <span>Serralheria do Elias</span>
+            <div class="search-global">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+                <input type="text" placeholder="Pesquisar no sistema...">
             </div>
-        </div>
+            <div class="user">
+                <svg class="bell" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+                <div class="avatar">E</div>
+                <div class="user-info">
+                    <strong>Elias</strong>
+                    <span>Serralheria do Elias</span>
+                </div>
+            </div>
         </header>
 
-        <main class="content">
-        <h1>Clientes</h1>
-        <p class="subtitle">Gerencie os clientes cadastrados no sistema</p>
+        <section class="content">
+            <h1>Clientes</h1>
+            <p class="subtitle">Gerencie os clientes cadastrados no sistema</p>
 
-        <div class="summary">
-            <div class="card-total">
-            <div class="card-icon">
-                <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><circle cx="9" cy="8" r="4"/><path d="M1 21c0-4 3.6-7 8-7s8 3 8 7z"/><circle cx="17.5" cy="9" r="3"/><path d="M18 14c3 .3 5 2.6 5 5.5V21h-4.5c0-2.6-.6-4.800-2-6.500.4-.3.9-.5 1.500-.5z"/></svg>
+            <div class="summary">
+                <div class="card-total">
+                    <div class="card-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><circle cx="9" cy="8" r="4"/><path d="M1 21c0-4 3.6-7 8-7s8 3 8 7z"/><circle cx="17.5" cy="9" r="3"/><path d="M18 14c3 .3 5 2.6 5 5.5V21h-4.5c0-2.6-.6-4.800-2-6.500.4-.3.9-.5 1.500-.5z"/></svg>
+                    </div>
+                    <div>
+                        <span>Total de clientes</span>
+                        <strong id="totalClientes">0</strong>
+                    </div>
+                </div>
+                <button class="botao botao-primario" id="btnNovo">+ Novo Cliente</button>
             </div>
-            <div>
-                <span>Total de clientes</span>
-                <strong id="totalClientes">0</strong>
-            </div>
-            </div>
-            <button class="btn btn-primary" id="btnNovo">+ Novo Cliente</button>
-        </div>
 
-        <div class="filters">
-            <div class="search-box">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
-            <input type="text" id="busca" placeholder="Buscar por nome">
+            <div class="filters">
+                <div class="search-box">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+                    <input type="text" id="busca" placeholder="Buscar por nome">
+                </div>
+                <select id="ordenar">
+                    <option value="recentes">Ordenar por: Mais recentes</option>
+                    <option value="antigos">Ordenar por: Mais antigos</option>
+                    <option value="az">Ordenar por: Nome (A-Z)</option>
+                    <option value="za">Ordenar por: Nome (Z-A)</option>
+                </select>
             </div>
-            <select id="ordenar">
-            <option value="recentes">Ordenar por: Mais recentes</option>
-            <option value="antigos">Ordenar por: Mais antigos</option>
-            <option value="az">Ordenar por: Nome (A-Z)</option>
-            <option value="za">Ordenar por: Nome (Z-A)</option>
-            </select>
-        </div>
 
-        <div class="table-wrap">
-            <table>
-            <thead>
-                <tr>
-                <th>Nome</th>
-                <th>Telefone</th>
-                <th>E-mail</th>
-                <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody id="tabelaClientes"></tbody>
-            </table>
-        </div>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Telefone</th>
+                            <th>E-mail</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabelaClientes"></tbody>
+                </table>
+            </div>
 
-        <div class="table-footer">
-            <span id="infoPaginacao">Mostrando 0 de 0 Clientes</span>
-            <div class="pagination" id="paginacao"></div>
-        </div>
-        </main>
-    </div>
+            <div class="table-footer">
+                <span id="infoPaginacao">Mostrando 0 de 0 Clientes</span>
+                <div class="paginas" id="paginacao"></div>
+            </div>
+        </section>
+    </main>
 
     <div class="overlay" id="modalCliente" aria-hidden="true">
-        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitulo">
-        <div class="modal-header">
-            <h2 id="modalTitulo">Novo Cliente</h2>
-            <button type="button" class="close" id="btnFechar" aria-label="Fechar">&times;</button>
-        </div>
-
-        <form id="formCliente" novalidate>
-            <input type="hidden" id="clienteId">
-
-            <div class="grid">
-            <div class="field full">
-                <label for="nome">Nome</label>
-                <input type="text" id="nome" placeholder="Nome completo" required>
-                <small class="erro"></small>
+        <div class="caixa" role="dialog" aria-modal="true" aria-labelledby="modalTitulo">
+            <div class="caixa-topo">
+                <h2 id="modalTitulo">Novo Cliente</h2>
+                <button type="button" class="fechar" id="btnFechar" aria-label="Fechar">&times;</button>
             </div>
 
-            <div class="field">
-                <label for="email">E-mail</label>
-                <input type="email" id="email" placeholder="exemplo@email.com" required>
-                <small class="erro"></small>
-            </div>
+            <form id="formCliente" novalidate>
+                <input type="hidden" id="clienteId">
 
-            <div class="field">
-                <label for="telefone">Telefone</label>
-                <input type="text" id="telefone" placeholder="(34) 99999-9999" maxlength="15" required>
-                <small class="erro"></small>
-            </div>
+                <div class="campos-grade">
+                    <div class="field full">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" placeholder="Nome completo" required>
+                        <small class="erro"></small>
+                    </div>
 
-            <div class="field">
-                <label for="idade">Idade</label>
-                <input type="number" id="idade" placeholder="Ex.: 35" min="0" max="120" required>
-                <small class="erro"></small>
-            </div>
+                    <div class="field">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" placeholder="exemplo@email.com" required>
+                        <small class="erro"></small>
+                    </div>
 
-            <div class="field">
-                <label for="endereco">Endereço</label>
-                <input type="text" id="endereco" placeholder="Rua, número, bairro" required>
-                <small class="erro"></small>
-            </div>
-            </div>
+                    <div class="field">
+                        <label for="telefone">Telefone</label>
+                        <input type="text" id="telefone" placeholder="(34) 99999-9999" maxlength="15" required>
+                        <small class="erro"></small>
+                    </div>
 
-            <div class="modal-footer">
-            <button type="button" class="btn btn-ghost" id="btnCancelar">Cancelar</button>
-            <button type="submit" class="btn btn-primary" id="btnSalvar">Cadastrar</button>
-            </div>
-        </form>
+                    <div class="field">
+                        <label for="idade">Idade</label>
+                        <input type="number" id="idade" placeholder="Ex.: 35" min="0" max="120" required>
+                        <small class="erro"></small>
+                    </div>
+
+                    <div class="field">
+                        <label for="endereco">Endereço</label>
+                        <input type="text" id="endereco" placeholder="Rua, número, bairro" required>
+                        <small class="erro"></small>
+                    </div>
+                </div>
+
+                <div class="caixa-rodape">
+                    <button type="button" class="botao botao-claro" id="btnCancelar">Cancelar</button>
+                    <button type="submit" class="botao botao-primario" id="btnSalvar">Cadastrar</button>
+                </div>
+            </form>
         </div>
     </div>
 
     <div class="overlay" id="modalExcluir" aria-hidden="true">
-        <div class="modal modal-sm" role="alertdialog" aria-modal="true">
-        <div class="modal-header">
-            <h2>Excluir cliente</h2>
-            <button type="button" class="close" data-close-excluir aria-label="Fechar">&times;</button>
-        </div>
-        <p class="confirm-text">Tem certeza que deseja excluir <strong id="nomeExcluir"></strong>? Esta ação não pode ser desfeita.</p>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-ghost" data-close-excluir>Cancelar</button>
-            <button type="button" class="btn btn-danger" id="btnConfirmarExcluir">Excluir</button>
-        </div>
+        <div class="caixa caixa-sm" role="alertdialog" aria-modal="true">
+            <div class="caixa-topo">
+                <h2>Excluir cliente</h2>
+                <button type="button" class="fechar" data-close-excluir aria-label="Fechar">&times;</button>
+            </div>
+            <p class="confirm-text">Tem certeza que deseja excluir <strong id="nomeExcluir"></strong>? Esta ação não pode ser desfeita.</p>
+            <div class="caixa-rodape">
+                <button type="button" class="botao botao-claro" data-close-excluir>Cancelar</button>
+                <button type="button" class="botao botao-perigo" id="btnConfirmarExcluir">Excluir</button>
+            </div>
         </div>
     </div>
 
-    <div class="toast" id="toast"></div>
-    </main>
+    <div class="aviso" id="toast"></div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>

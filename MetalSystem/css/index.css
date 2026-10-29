@@ -1,122 +1,176 @@
-/* =====================================================
-   VALORES DO FIGMA: ajuste só aqui, no topo do arquivo
-   ===================================================== */
-:root {
-  /* Cores */
-  --fundo-pagina: #0E0E0E;     /* fundo preto atrás do cartão */
-  --fundo-painel: #2B2B2B;     /* painel cinza escuro do formulário */
-  --laranja: #F97316;          /* botão Entrar e detalhes */
-  --laranja-hover: #EA6A0A;
-  --texto: #FFFFFF;
-  --texto-suave: #A3A3A3;      /* slogan, subtítulo, placeholder */
-  --fundo-campo: #3A3A3A;
-  --borda-campo: #4F4F4F;
-  --erro: #F87171;
+/* ================= VARIÁVEIS: o "painel de controle" do arquivo ================= */
+:root { /* ":root" é a raiz da página. Variáveis guardadas aqui valem para o arquivo todo */
+  --fundo-pagina: #000000;      /* Cor de fundo atrás do cartão. Cores usam hexadecimal: #RRGGBB (vermelho, verde, azul). #000000 = preto */
+  --fundo-painel: #17181a;      /* Cinza muito escuro do painel do formulário */
+  --laranja: #F97316;           /* Laranja da marca (botão Entrar e detalhes) */
+  --laranja-hover: #EA6A0A;     /* Laranja um pouco mais escuro, usado quando o mouse passa por cima do botão */
+  --texto: #FFFFFF;             /* Cor principal do texto (branco) */
+  --texto-suave: #A3A3A3;       /* Cinza claro para textos secundários (slogan, subtítulo, dicas) */
+  --fundo-campo: #1f2124;       /* Fundo das caixas de usuário e senha */
+  --borda-campo: #33363a;       /* Cor da borda dessas caixas */
+  --erro: #F87171;              /* Vermelho claro da mensagem de erro */
 
-  /* Tamanhos */
-  --largura-cartao: 1000px;
-  --altura-cartao: 600px;
-  --largura-imagem: 38%;       /* parte da largura que a foto ocupa */
-  --largura-form: 340px;
-  --logo-largura: 180px;
+  --largura-cartao: 1100px;     /* Largura máxima do cartão. Aumente ou diminua para mudar o tamanho */
+  --altura-cartao: 700px;       /* Altura máxima do cartão */
+  --alt: min(90vh, var(--altura-cartao)); /* min() escolhe o MENOR valor: 90% da altura da janela (vh) ou 700px. Assim o cartão nunca passa da janela */
 
-  /* Texto */
-  --fonte: 'Inter', sans-serif;
-  --tam-titulo: 28px;
-  --tam-texto: 14px;
+  --largura-form: 340px;        /* Largura máxima do formulário */
+  --logo-largura: 170px;        /* Largura do logo */
+  --tam-titulo: 28px;           /* Tamanho da letra do título "Bem-vindo!" */
 
-  /* Cantos retos, como no projeto */
-  --raio: 0;
-}
+  --fonte: 'Inter', sans-serif; /* Fonte do texto. sans-serif é a reserva caso a Inter não carregue */
+  --fonte-titulo: 'Inter', sans-serif; /* Fonte dos títulos. Separada para você trocar só ela se o Figma usar outra */
+  --raio: 0;                    /* Arredondamento dos cantos. 0 = cantos retos, como no projeto */
+} /* Fim das variáveis */
 
-/* ---------- Base ---------- */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+/* ================= BASE ================= */
+* { box-sizing: border-box; margin: 0; padding: 0; } /* "*" = todos os elementos. Zera as margens do navegador e faz borda e padding contarem DENTRO da largura definida (evita que as caixas "estourem") */
 
-body {
-  font-family: var(--fonte);
-  font-size: var(--tam-texto);
-  background: var(--fundo-pagina);
-  color: var(--texto);
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-}
+body { /* Estilo do corpo da página */
+  height: 100vh;                /* 100vh = a altura inteira da janela. Garante que a página não tenha barra de rolagem */
+  display: flex;                /* Liga o "flexbox": um jeito de organizar elementos filhos em linha ou coluna */
+  align-items: center;          /* Centraliza o cartão na VERTICAL */
+  justify-content: center;      /* Centraliza o cartão na HORIZONTAL */
+  background: var(--fundo-pagina); /* Pinta o fundo usando a variável. var(--nome) lê o valor guardado */
+  color: var(--texto);          /* Cor padrão de todo o texto da página */
+  font-family: var(--fonte);    /* Fonte padrão da página */
+  font-size: 14px;              /* Tamanho padrão do texto */
+} /* Fim do body */
 
-/* ---------- Cartão (imagem + painel) ---------- */
-.login {
-  display: flex;
-  width: 100%;
-  max-width: var(--largura-cartao);
-  min-height: var(--altura-cartao);
-}
+/* ================= CARTÃO (foto + painel lado a lado) ================= */
+.login { /* O ponto "." significa "elemento com class=login" */
+  display: flex;                /* Coloca os dois filhos (foto e painel) lado a lado */
+  width: min(92vw, var(--largura-cartao)); /* Largura = o MENOR entre 92% da largura da janela (vw) e 1100px */
+  height: var(--alt);           /* Altura fixa do cartão, definida lá nas variáveis */
+  overflow: hidden;             /* Corta qualquer coisa que passe das bordas do cartão */
+} /* Fim do cartão */
 
-/* ---------- Parte 1: imagem ---------- */
-.login__imagem { flex: 0 0 var(--largura-imagem); }
-.login__imagem img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;           /* a foto preenche sem distorcer */
-  display: block;
-}
+/* ================= PARTE 1: FOTO ================= */
+.login__imagem { /* Coluna da foto */
+  position: relative;           /* Vira ponto de referência para o degradê (::after) ficar posicionado em cima dela */
+  flex: 0 0 auto;               /* Não cresce (0), não encolhe (0) e usa o tamanho natural (auto): a largura vem da própria foto */
+} /* Fim da coluna da foto */
 
-/* ---------- Parte 2: painel ---------- */
-.login__painel {
-  flex: 1;
-  background: var(--fundo-painel);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
-  padding: 48px 32px;
-}
+.login__imagem img { /* A foto em si */
+  display: block;               /* Imagens têm um espacinho extra embaixo por padrão. block remove isso */
+  height: var(--alt);           /* A foto ocupa a altura toda do cartão... */
+  width: auto;                  /* ...e a largura se calcula sozinha, mantendo a proporção: não corta nem estica */
+  max-width: 50vw;              /* Segurança: a foto nunca passa de metade da largura da janela */
+  object-fit: cover;            /* Se for limitada pelo max-width, ela preenche sem distorcer (cortando só as sobras) */
+} /* Fim da foto */
 
-/* 2.1 Logo + slogan */
-.login__marca { text-align: center; }
-.login__logo { width: var(--logo-largura); height: auto; display: block; margin: 0 auto 8px; }
-.login__slogan { color: var(--texto-suave); font-size: 13px; }
+.login__imagem::after { /* "::after" cria uma camada extra por cima da foto, sem precisar de HTML. É a "sombra" */
+  content: "";                  /* Obrigatório: sem content, a camada não aparece. Vazio porque é só visual */
+  position: absolute;           /* Tira a camada do fluxo normal para sobrepor a foto */
+  inset: 0;                     /* inset:0 = colada nos 4 lados (cima, baixo, esquerda, direita) do pai: cobre a foto inteira */
+  background: linear-gradient(to right, transparent 65%, var(--fundo-painel)); /* Degradê da esquerda para a direita: até 65% da largura é transparente (não muda nada); daí até o fim vira a cor do painel. Isso funde a foto ao cartão */
+  pointer-events: none;         /* O degradê não bloqueia cliques */
+} /* Fim do degradê */
 
-/* 2.2 Formulário */
-.login__form { width: 100%; max-width: var(--largura-form); }
-.login__titulo { font-size: var(--tam-titulo); font-weight: 700; }
-.login__subtitulo { color: var(--texto-suave); margin: 4px 0 24px; }
+/* ================= PARTE 2: PAINEL ================= */
+.login__painel { /* Painel escuro que guarda logo e formulário */
+  flex: 1;                      /* Ocupa TODO o espaço que a foto não usou */
+  min-width: 0;                 /* Permite o painel encolher em telas pequenas sem estourar */
+  display: flex;                /* Liga o flexbox também aqui, para organizar logo e formulário */
+  flex-direction: column;       /* Empilha os filhos de cima para baixo (logo em cima, formulário embaixo) */
+  align-items: center;          /* Centraliza os filhos na horizontal (em coluna, align é o eixo horizontal) */
+  justify-content: center;      /* Centraliza o conjunto na vertical */
+  gap: 36px;                    /* Espaço de 36px entre o logo e o formulário */
+  padding: 32px;                /* Respiro interno de 32px entre as bordas do painel e o conteúdo */
+  background: var(--fundo-painel); /* Cor de fundo do painel */
+  overflow-y: auto;             /* Se a janela for muito baixa, só o painel ganha rolagem (nada é cortado) */
+} /* Fim do painel */
 
-.campo { margin-bottom: 16px; }
-.campo label { display: block; font-size: 12px; font-weight: 600; margin-bottom: 6px; }
-.campo input {
-  width: 100%;
-  padding: 12px 14px;
-  background: var(--fundo-campo);
-  border: 1px solid var(--borda-campo);
-  border-radius: var(--raio);
-  color: var(--texto);
-  font: inherit;
-}
-.campo input::placeholder { color: var(--texto-suave); }
-.campo input:focus { outline: 2px solid var(--laranja); outline-offset: 0; border-color: var(--laranja); }
+/* ----- Logo e slogan ----- */
+.login__marca { text-align: center; } /* Centraliza o texto do slogan */
 
-.login__erro { color: var(--erro); font-size: 13px; margin-bottom: 12px; }
+.login__logo { /* O logo */
+  width: var(--logo-largura);   /* Largura do logo */
+  height: auto;                 /* Altura se ajusta sozinha, mantendo a proporção */
+  display: block;               /* Necessário para o margin:auto funcionar */
+  margin: 0 auto 8px;           /* Margens: 0 em cima, "auto" nos lados (centraliza) e 8px embaixo */
+} /* Fim do logo */
 
-.botao {
-  width: 100%;
-  margin-top: 8px;
-  padding: 13px;
-  background: var(--laranja);
-  color: var(--texto);
-  border: 0;
-  border-radius: var(--raio);
-  font: inherit;
-  font-weight: 700;
-  cursor: pointer;
-}
-.botao:hover { background: var(--laranja-hover); }
-.botao:focus-visible { outline: 2px solid var(--texto); outline-offset: 2px; }
+.login__slogan { /* O slogan */
+  color: var(--texto-suave);    /* Cinza claro */
+  font-family: var(--fonte-titulo); /* Fonte dos títulos */
+  font-size: 13px;              /* Letra pequena */
+} /* Fim do slogan */
 
-/* ---------- Celular: esconde a foto ---------- */
-@media (max-width: 760px) {
-  body { padding: 0; }
-  .login { min-height: 100vh; }
-  .login__imagem { display: none; }
-}
+/* ----- Formulário ----- */
+.login__form { /* Caixa do formulário */
+  width: 100%;                  /* Ocupa toda a largura disponível... */
+  max-width: var(--largura-form); /* ...mas nunca mais que 340px */
+} /* Fim do formulário */
+
+.login__titulo { /* "Bem-vindo!" */
+  font-family: var(--fonte-titulo); /* Fonte do título */
+  font-size: var(--tam-titulo); /* Tamanho definido na variável */
+  font-weight: 700;             /* Peso da letra: 400 normal, 700 negrito */
+} /* Fim do título */
+
+.login__subtitulo { /* "Faça login para acessar o sistema" */
+  color: var(--texto-suave);    /* Cinza claro */
+  margin: 4px 0 24px;           /* Margem: 4px em cima, 0 nos lados, 24px embaixo (ordem: cima, lados, baixo) */
+} /* Fim do subtítulo */
+
+.campo { margin-bottom: 16px; } /* Cada grupo rótulo + caixa fica 16px afastado do próximo */
+
+.campo label { /* O rótulo "Usuário" / "Senha" */
+  display: block;               /* Ocupa a linha inteira, empurrando a caixa para baixo */
+  font-size: 12px;              /* Letra pequena */
+  font-weight: 600;             /* Semi-negrito */
+  margin-bottom: 6px;           /* 6px de espaço entre o rótulo e a caixa */
+} /* Fim do rótulo */
+
+.campo input { /* As caixas de digitação */
+  width: 100%;                  /* Ocupam toda a largura do formulário */
+  padding: 12px 14px;           /* Espaço interno: 12px em cima/baixo e 14px nos lados */
+  background: var(--fundo-campo); /* Cor de fundo da caixa */
+  border: 1px solid var(--borda-campo); /* Borda de 1px, sólida, na cor definida */
+  border-radius: var(--raio);   /* Cantos retos (valor 0 da variável) */
+  color: var(--texto);          /* Cor do texto que a pessoa digita */
+  font: inherit;                /* A caixa usa a mesma fonte da página (campos não herdam sozinhos) */
+} /* Fim das caixas */
+
+.campo input::placeholder { color: var(--texto-suave); } /* "::placeholder" estiliza o texto de dica ("Digite seu usuário") */
+
+.campo input:focus { /* ":focus" = quando a caixa está selecionada (cursor piscando) */
+  outline: 2px solid var(--laranja); /* Contorno laranja de 2px para mostrar onde você está digitando */
+  outline-offset: 0;            /* O contorno encosta na borda, sem folga */
+  border-color: var(--laranja); /* A borda também fica laranja */
+} /* Fim do foco */
+
+.login__erro { /* Mensagem de erro (escondida até ser necessária) */
+  color: var(--erro);           /* Vermelho claro */
+  font-size: 13px;              /* Tamanho do texto */
+  margin-bottom: 12px;          /* Espaço antes do botão */
+} /* Fim do erro */
+
+/* ================= BOTÃO ENTRAR ================= */
+.botao { /* Vale para um link <a class="botao">. Sem estas regras, o link seria azul e sublinhado (estilo padrão do navegador) */
+  display: block;               /* O link vira bloco: ocupa a largura toda e aceita padding */
+  width: 100%;                  /* Largura total do formulário */
+  margin-top: 8px;              /* Espaço acima do botão */
+  padding: 13px;                /* Espaço interno: deixa o botão mais alto */
+  text-align: center;           /* Texto centralizado */
+  text-decoration: none;        /* Remove o sublinhado do link */
+  color: var(--texto);          /* Texto branco (remove o azul padrão) */
+  background: var(--laranja);   /* Fundo laranja */
+  border: 0;                    /* Sem borda */
+  border-radius: var(--raio);   /* Cantos retos */
+  font: inherit;                /* Usa a fonte da página */
+  font-weight: 700;             /* Texto em negrito */
+  cursor: pointer;              /* O mouse vira uma "mãozinha" sobre o botão */
+  box-shadow: 0 0 14px rgba(249, 115, 22, .45); /* Sombra/brilho laranja: 0 de deslocamento, 14px de desfoque, laranja com 45% de opacidade (rgba = vermelho, verde, azul, transparência) */
+} /* Fim do botão */
+
+.botao:hover { /* ":hover" = quando o mouse está por cima */
+  background: var(--laranja-hover); /* Escurece um pouco o laranja */
+  color: var(--texto);          /* Garante que o texto continue branco */
+} /* Fim do hover */
+
+.botao:focus-visible { /* Aparece quando alguém navega pelo teclado (tecla Tab) */
+  outline: 2px solid var(--texto); /* Contorno branco para mostrar qual botão está selecionado */
+  outline-offset: 2px;          /* Afasta o contorno 2px do botão */
+} /* Fim do foco */

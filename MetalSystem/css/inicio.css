@@ -1,232 +1,209 @@
 /* =========================================================
    INICIO.CSS: estilos que só valem na tela inicial.
-   Segue o padrão do grupo: tudo dentro de .pag-inicio (a classe do <body>),
-   assim nenhuma regra "vaza" para as outras páginas.
-
-   Aqui usamos CSS aninhado: regras escritas DENTRO de .pag-inicio { }
-   ganham automaticamente o prefixo ".pag-inicio". Funciona em Chrome,
-   Edge, Firefox e Safari de 2023 em diante. O símbolo "&" = ".pag-inicio".
+   Tudo fica dentro de .pag-inicio (classe do <body>): nenhuma regra "vaza" para outras páginas.
+   CSS aninhado: regras escritas DENTRO de .pag-inicio { } ganham o prefixo ".pag-inicio"
+   automaticamente. O símbolo "&" significa ".pag-inicio". Precisa de navegador de 2023 em diante.
    ========================================================= */
 
-.pag-inicio {
+.pag-inicio { /* Abre o bloco: tudo aqui dentro só vale em <body class="pag-inicio"> */
 
-    /* Variáveis só desta página. As cores seguem as do grupo (laranja #ff7800). */
-    --laranja: #ff7800;
-    --laranja-hover: #e56c00;
-    --verde: #1b7a1b;
-    --vermelho: #d91100;
-    --ambar: #b45309;
-    --texto-suave: #555555;
-    --borda: #cccccc;
-    --suave: #f2f2f2;
+    /* ---------- Variáveis só desta página ---------- */
+    --laranja: #ff7800;        /* Laranja da marca, em hexadecimal (#RRGGBB) */
+    --laranja-hover: #e56c00;  /* Laranja mais escuro (definido, reservado para efeitos de mouse) */
+    --verde: #1b7a1b;          /* Verde: coisas boas */
+    --vermelho: #d91100;       /* Vermelho: coisas ruins */
+    --ambar: #b45309;          /* Âmbar: atenção */
+    --texto-suave: #555555;    /* Cinza para textos secundários */
+    --borda: #cccccc;          /* Cinza das bordas finas */
+    --suave: #f2f2f2;          /* Cinza claríssimo (faixas de título, hover) */
 
-    /* ---------- Barra superior (mesmo padrão do orçamentos.css) ---------- */
-    & header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-right: 25px;
+    /* ---------- Barra superior ---------- */
+    & header {                 /* "&" = .pag-inicio, então isto vale para o <header> desta página */
+        display: flex;         /* Liga o flexbox: organiza os filhos em linha */
+        justify-content: space-between; /* Um filho em cada ponta (busca à esquerda, usuário à direita) */
+        align-items: center;   /* Centraliza os filhos na vertical */
+        padding-right: 25px;   /* Afasta o usuário 25px da borda direita */
     }
-    .topo-direita { display: flex; align-items: center; gap: 16px; }
-    .data-hoje { font-size: 13px; color: var(--texto-suave); }
 
-    .icone-btn {
-        position: relative;
-        border: 0;
-        background: none;
-        padding: 4px 6px;
-        font-size: 22px;
-        color: var(--texto-suave);
+    .usuario {                 /* Botão do usuário (foto + nome) */
+        display: flex;         /* Avatar e texto lado a lado */
+        align-items: center;   /* Alinhados no meio na vertical */
+        gap: 10px;             /* 10px de espaço entre avatar e texto */
+        border: 0;             /* Remove a borda padrão do botão */
+        background: none;      /* Remove o fundo cinza padrão do botão */
+        text-align: left;      /* Texto alinhado à esquerda (botões centralizam por padrão) */
+        line-height: 1.2;      /* Altura da linha: 1,2 vezes o tamanho da letra (linhas mais juntas) */
     }
-    .icone-btn:hover { color: var(--laranja); }
-    .ponto { position: absolute; top: 3px; right: 3px; width: 8px; height: 8px; background: var(--laranja); }
+    .avatar-usuario {          /* Quadrado laranja com a inicial */
+        width: 34px;           /* Largura */
+        height: 34px;          /* Altura (igual à largura = quadrado) */
+        display: grid;         /* Liga o "grid", outro jeito de organizar elementos */
+        place-items: center;   /* Centraliza a letra no meio do quadrado (vertical e horizontal) */
+        background-color: var(--laranja); /* Fundo laranja. var(--nome) lê uma variável */
+        color: #ffffff;        /* Letra branca */
+        font-weight: 700;      /* Negrito */
+        font-size: 18px;       /* Tamanho da letra */
+    }
+    .usuario-texto strong { display: block; font-size: 14px; } /* Nome do usuário: ocupa a linha toda (block) e tem 14px */
+    .usuario-texto small { font-size: 12px; color: var(--texto-suave); } /* Empresa: letra menor e cinza */
 
-    .usuario {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        border: 0;
-        background: none;
-        text-align: left;
-        line-height: 1.2;
+    /* ---------- Menu que abre ao clicar na foto ---------- */
+    .menu-suspenso { position: relative; } /* Vira o ponto de referência: a caixa que abre se posiciona em relação a ele */
+    .suspenso {                /* A caixinha que abre */
+        position: absolute;    /* Sai do fluxo normal e "flutua" por cima do resto */
+        right: 0;              /* Alinha à direita do .menu-suspenso */
+        top: calc(100% + 10px); /* calc() faz conta: 100% da altura do pai + 10px = logo abaixo do botão, com folga */
+        width: 190px;          /* Largura da caixa */
+        z-index: 20;           /* Ordem de empilhamento: número maior fica por cima */
+        background: #ffffff;   /* Fundo branco */
+        border: 1px solid var(--borda); /* Borda fina cinza */
+        box-shadow: 0 8px 24px rgba(0, 0, 0, .18); /* Sombra: 0 de lado, 8px para baixo, 24px de desfoque, preto com 18% de opacidade */
     }
-    .avatar-usuario {
-        width: 34px;
-        height: 34px;
-        display: grid;
-        place-items: center;       /* centraliza a letra */
-        background-color: var(--laranja);
-        color: #ffffff;
-        font-weight: 700;
-        font-size: 18px;
+    .suspenso[hidden] { display: none; } /* [hidden] = quando tem o atributo hidden no HTML: some de vez */
+    .suspenso a {              /* Cada opção do menu */
+        display: flex;         /* Layout em linha */
+        justify-content: space-between; /* Espalha o conteúdo pelas pontas */
+        padding: 12px 16px;    /* Espaço interno: 12px em cima/baixo, 16px nos lados */
+        border-bottom: 1px solid #e3e3e3; /* Linha fina separando as opções */
+        color: #222222;        /* Texto quase preto */
+        text-decoration: none; /* Tira o sublinhado do link */
     }
-    .usuario-texto strong { display: block; font-size: 14px; }
-    .usuario-texto small { font-size: 12px; color: var(--texto-suave); }
-
-    /* Caixas que abrem ao clicar no sino e no usuário */
-    .menu-suspenso { position: relative; }
-    .suspenso {
-        position: absolute;
-        right: 0;
-        top: calc(100% + 10px);
-        width: 280px;
-        z-index: 20;
-        background: #ffffff;
-        border: 1px solid var(--borda);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, .18);
-    }
-    .suspenso[hidden] { display: none; }
-    .suspenso a {
-        display: flex;
-        justify-content: space-between;
-        padding: 12px 16px;
-        border-bottom: 1px solid #e3e3e3;
-        color: #222222;
-        text-decoration: none;
-    }
-    .suspenso a:last-child { border-bottom: 0; }
-    .suspenso a:hover { background: var(--suave); }
-    .suspenso-titulo {
-        padding: 10px 16px;
-        font-size: 12px;
-        font-weight: 700;
-        text-transform: uppercase;
-        color: var(--texto-suave);
-        background: var(--suave);
-        border-bottom: 1px solid var(--borda);
-    }
+    .suspenso a:last-child { border-bottom: 0; } /* ":last-child" = o último item: sem linha embaixo */
+    .suspenso a:hover { background: var(--suave); } /* ":hover" = mouse por cima: fundo cinza claro */
 
     /* ---------- Título e subtítulo ---------- */
-    .subtitulo { padding: 0 40px; margin: -8px 0 0; color: var(--texto-suave); }
-    .destaque { color: var(--laranja); }
-    .bom { color: var(--verde); }
-    .ruim { color: var(--vermelho); }
-    .alerta { color: var(--ambar); }
+    .subtitulo { padding: 0 40px; margin: -8px 0 0; color: var(--texto-suave); } /* padding lateral alinha com o título; margin negativa (-8px) sobe o texto para perto do título; cor cinza */
+
+    /* ---------- Cores de apoio (use como class="bom" etc.) ---------- */
+    .destaque { color: var(--laranja); } /* Texto laranja */
+    .bom { color: var(--verde); }        /* Texto verde */
+    .ruim { color: var(--vermelho); }    /* Texto vermelho */
+    .alerta { color: var(--ambar); }     /* Texto âmbar */
 
     /* ---------- Cards de números ---------- */
-    /* auto-fit + minmax: tantos cards quantos couberem, mínimo 170px cada */
-    .kpis {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-        gap: 14px;
-        margin-bottom: 20px;
+    .kpis {                    /* Caixa que agrupa os 5 cards */
+        display: grid;         /* Layout em grade (linhas e colunas) */
+        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); /* Colunas automáticas: cabem quantas der, cada uma com no mínimo 170px e dividindo o espaço igualmente (1fr). Em tela estreita os cards quebram de linha sozinhos */
+        gap: 14px;             /* Espaço entre os cards */
+        margin-bottom: 20px;   /* Espaço abaixo da grade */
     }
-    .kpi {
-        padding: 14px 16px;
-        background: #ffffff;
-        border: 0.5px solid #606060;
-        border-top: 3px solid var(--laranja);
+    .kpi {                     /* Cada card */
+        padding: 14px 16px;    /* Espaço interno */
+        background: #ffffff;   /* Fundo branco */
+        border: 0.5px solid #606060; /* Borda fina cinza escura */
+        border-top: 3px solid var(--laranja); /* Só o topo ganha uma borda grossa laranja (sobrescreve a de cima) */
     }
-    .kpi-rotulo {
-        display: flex;
-        justify-content: space-between;
-        font-size: 12px;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: .05em;
-        color: var(--texto-suave);
+    .kpi-rotulo {              /* Linha do nome + ícone */
+        display: flex;         /* Nome e ícone na mesma linha */
+        justify-content: space-between; /* Nome à esquerda, ícone à direita */
+        font-size: 12px;       /* Letra pequena */
+        font-weight: 600;      /* Semi-negrito */
+        text-transform: uppercase; /* Transforma o texto em MAIÚSCULAS (só visualmente) */
+        letter-spacing: .05em; /* Espaço entre as letras (em = relativo ao tamanho da fonte) */
+        color: var(--texto-suave); /* Cinza */
     }
-    .kpi-rotulo i { font-size: 18px; color: var(--laranja); }
-    .kpi-valor { margin: 4px 0; font-size: 24px; font-weight: 700; }
-    .kpi-destaque { color: var(--laranja); }
-    .kpi-variacao { font-size: 13px; color: var(--texto-suave); }
+    .kpi-rotulo i { font-size: 18px; color: var(--laranja); } /* O ícone dentro do rótulo: maior e laranja */
+    .kpi-valor { margin: 4px 0; font-size: 24px; font-weight: 700; } /* Número grande: 4px de margem em cima/baixo, 24px, negrito */
+    .kpi-destaque { color: var(--laranja); } /* Usada junto com kpi-valor no Lucro: deixa o número laranja */
+    .kpi-variacao { font-size: 13px; color: var(--texto-suave); }   /* Linha da variação: letra 13px e cinza no texto todo... */
+    .kpi-variacao span { font-weight: 700; }                        /* ...e só o <span> do número fica em negrito (a cor vem de .bom ou .ruim) */
 
     /* ---------- Ações rápidas ---------- */
-    .acoes { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
-    .btn-acao {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 8px 16px;
-        border: 1px solid var(--laranja);
-        background: white;
-        color: var(--laranja);
-        font-weight: 600;
-        text-decoration: none;
+    .acoes { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; } /* Botões em linha; flex-wrap deixa quebrar para a linha de baixo se faltar espaço; 10px entre eles */
+    .btn-acao {                /* Cada atalho */
+        display: inline-flex;  /* Ocupa só o necessário, mas organiza o conteúdo com flex */
+        align-items: center;   /* Ícone e texto alinhados no meio */
+        gap: 6px;              /* Espaço entre ícone e texto */
+        padding: 8px 16px;     /* Espaço interno */
+        border: 1px solid var(--laranja); /* Borda laranja */
+        background: white;     /* Fundo branco */
+        color: var(--laranja); /* Texto laranja */
+        font-weight: 600;      /* Semi-negrito */
+        text-decoration: none; /* Tira o sublinhado do link */
     }
-    .btn-acao:hover { background: var(--laranja); color: #ffffff; }
+    .btn-acao:hover { background: var(--laranja); color: #ffffff; } /* Mouse por cima: fundo laranja e texto branco (cores invertidas) */
 
     /* ---------- Duas colunas ---------- */
-    .grade { display: grid; grid-template-columns: 1.2fr 1fr; gap: 18px; align-items: start; }
-    .coluna { display: flex; flex-direction: column; gap: 18px; }
+    .grade { display: grid; grid-template-columns: 1.2fr 1fr; gap: 18px; align-items: start; } /* Duas colunas: a esquerda é 1,2 parte e a direita 1 parte; 18px entre elas; align-items:start gruda o conteúdo no topo (sem esticar o painel menor) */
+    .coluna { display: flex; flex-direction: column; gap: 18px; } /* Coluna da direita: empilha os painéis, com 18px entre eles */
 
     /* ---------- Painéis ---------- */
-    .painel { background: #ffffff; border: 0.5px solid #606060; }
-    .painel-topo {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 12px 16px;
-        background: var(--suave);
-        border-bottom: 1px solid var(--borda);
-        font-weight: 600;
+    .painel { background: #ffffff; border: 0.5px solid #606060; } /* Caixa branca com borda fina */
+    .painel-topo {             /* Faixa cinza com o título do painel */
+        display: flex;         /* Título e link na mesma linha */
+        justify-content: space-between; /* Título à esquerda, link à direita */
+        align-items: center;   /* Alinhados no meio */
+        padding: 12px 16px;    /* Espaço interno */
+        background: var(--suave); /* Cinza claríssimo */
+        border-bottom: 1px solid var(--borda); /* Linha embaixo */
+        font-weight: 600;      /* Semi-negrito */
     }
-    .link-laranja { color: var(--laranja); font-size: 13px; font-weight: 600; text-decoration: none; }
+    .link-laranja { color: var(--laranja); font-size: 13px; font-weight: 600; text-decoration: none; } /* Link "Ver ... →": laranja, pequeno, sem sublinhado */
 
-    /* Faixa de números pequenos */
-    .mini { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid var(--borda); }
-    .mini-2 { grid-template-columns: repeat(2, 1fr); }
-    .mini > div { padding: 12px 16px; border-right: 1px solid var(--borda); }
-    .mini > div:last-child { border-right: 0; }
-    .mini small { display: block; font-size: 12px; text-transform: uppercase; color: var(--texto-suave); }
-    .mini strong { font-size: 17px; }
+    /* ---------- Faixa de números pequenos ---------- */
+    .mini { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid var(--borda); } /* 4 colunas iguais (repeat(4, 1fr)) e linha embaixo */
+    .mini-2 { grid-template-columns: repeat(2, 1fr); } /* Versão com 2 colunas (sobrescreve a anterior) */
+    .mini > div { padding: 12px 16px; border-right: 1px solid var(--borda); } /* ">" = filho direto: cada <div> da faixa tem espaço interno e uma linha à direita */
+    .mini > div:last-child { border-right: 0; } /* O último não precisa da linha à direita */
+    .mini small { display: block; font-size: 12px; text-transform: uppercase; color: var(--texto-suave); } /* Rótulo pequeno em maiúsculas, em cima do número */
+    .mini strong { font-size: 17px; } /* Número um pouco maior */
 
     /* ---------- Tabela ---------- */
-    .tabela-wrap { overflow-x: auto; }
-    .tabela-inicio { width: 100%; border-collapse: collapse; font-size: 14px; }
-    .tabela-inicio th {
-        padding: 10px 16px;
-        text-align: left;
-        font-size: 12px;
-        font-weight: 600;
-        text-transform: uppercase;
-        color: var(--texto-suave);
-        border-bottom: 1px solid var(--borda);
+    .tabela-wrap { overflow-x: auto; } /* Se a tabela for mais larga que o painel, aparece rolagem lateral em vez de quebrar o layout */
+    .tabela-inicio { width: 100%; border-collapse: collapse; font-size: 14px; } /* Largura total; "collapse" junta as bordas das células em uma só; texto 14px */
+    .tabela-inicio th {        /* Títulos das colunas */
+        padding: 10px 16px;    /* Espaço interno */
+        text-align: left;      /* Alinhados à esquerda */
+        font-size: 12px;       /* Letra pequena */
+        font-weight: 600;      /* Semi-negrito */
+        text-transform: uppercase; /* MAIÚSCULAS */
+        color: var(--texto-suave); /* Cinza */
+        border-bottom: 1px solid var(--borda); /* Linha embaixo do cabeçalho */
     }
-    .tabela-inicio td { padding: 12px 16px; border-bottom: 1px solid #e3e3e3; white-space: nowrap; }
-    .tabela-inicio tr:last-child td { border-bottom: 0; }
-    .tabela-inicio tbody tr:hover td { background: #f7f7f7; }
-    .iniciais {
-        display: inline-grid;
-        place-items: center;
-        width: 28px;
-        height: 28px;
-        margin-right: 10px;
-        background: #5f5f5f;
-        color: #ffffff;
-        font-size: 12px;
-        font-weight: 700;
-        vertical-align: middle;
+    .tabela-inicio td { padding: 12px 16px; border-bottom: 1px solid #e3e3e3; white-space: nowrap; } /* Células: espaço interno, linha fina embaixo e nowrap = não quebra o texto em duas linhas */
+    .tabela-inicio tr:last-child td { border-bottom: 0; } /* Última linha da tabela sem traço embaixo */
+    .tabela-inicio tbody tr:hover td { background: #f7f7f7; } /* Mouse sobre a linha: fundo cinza clarinho */
+    .iniciais {                /* Quadradinho com as iniciais do nome */
+        display: inline-grid;  /* Fica na linha do texto, mas com layout em grade */
+        place-items: center;   /* Letras no meio do quadrado */
+        width: 28px;           /* Largura */
+        height: 28px;          /* Altura */
+        margin-right: 10px;    /* Espaço até o nome */
+        background: #5f5f5f;   /* Cinza escuro */
+        color: #ffffff;        /* Letras brancas */
+        font-size: 12px;       /* Tamanho */
+        font-weight: 700;      /* Negrito */
+        vertical-align: middle; /* Alinha o quadrado ao meio da linha de texto */
     }
 
     /* ---------- Gráfico de barras ---------- */
-    .grafico-titulo { margin: 0; padding: 14px 16px 0; font-size: 13px; font-weight: 600; text-transform: uppercase; color: var(--texto-suave); }
-    .grafico { display: flex; align-items: flex-end; gap: 10px; height: 180px; padding: 16px; }
-    .grafico-dia { flex: 1; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; }
-    .grafico-barras { flex: 1; display: flex; align-items: flex-end; gap: 2px; }
-    .grafico-barras span { flex: 1; }          /* a altura de cada barra vem do JS */
-    .grafico-dia small { margin-top: 6px; text-align: center; font-size: 11px; color: var(--texto-suave); }
-    .barra-entrada { background: var(--laranja); }
-    .barra-saida { background: #5f5f5f; }
-    .barra-despesa { background: #bdbdbd; }
-    .legenda { display: flex; gap: 16px; padding: 0 16px 14px; font-size: 13px; color: var(--texto-suave); }
-    .legenda i { display: inline-block; width: 10px; height: 10px; margin-right: 6px; }
+    .grafico-titulo { margin: 0; padding: 14px 16px 0; font-size: 13px; font-weight: 600; text-transform: uppercase; color: var(--texto-suave); } /* Título do gráfico: sem margem, espaço interno só em cima e nos lados, letra pequena em maiúsculas */
+    .grafico { display: flex; align-items: flex-end; gap: 10px; height: 180px; padding: 16px; } /* Área do gráfico: colunas lado a lado, coladas embaixo (flex-end), 180px de altura */
+    .grafico-dia { flex: 1; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; } /* Cada dia: divide a largura igualmente (flex:1), ocupa a altura toda e empilha barras (cima) e data (baixo) */
+    .grafico-barras { flex: 1; display: flex; align-items: flex-end; gap: 2px; } /* As 3 barras do dia ficam lado a lado, crescendo de baixo para cima, com 2px entre elas */
+    .grafico-barras span { flex: 1; }          /* Cada barra divide a largura igualmente. A ALTURA vem do JS (style="height:..%") */
+    .grafico-dia small { margin-top: 6px; text-align: center; font-size: 11px; color: var(--texto-suave); } /* Data embaixo das barras: pequena, centralizada, cinza */
+    .barra-entrada { background: var(--laranja); } /* Barra de entrada: laranja */
+    .barra-saida { background: #5f5f5f; }          /* Barra de saída: cinza escuro */
+    .barra-despesa { background: #bdbdbd; }        /* Barra de despesa: cinza claro */
+    .legenda { display: flex; gap: 16px; padding: 0 16px 14px; font-size: 13px; color: var(--texto-suave); } /* Legenda: itens lado a lado, com espaço entre eles */
+    .legenda i { display: inline-block; width: 10px; height: 10px; margin-right: 6px; } /* O quadradinho de cor: 10x10px (a cor vem das classes barra-*) */
 
     /* ---------- Precisa de atenção ---------- */
-    .atencao a {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 12px 16px;
-        border-bottom: 1px solid #e3e3e3;
-        color: #222222;
-        text-decoration: none;
+    .atencao a {               /* Cada aviso (link) */
+        display: flex;         /* Texto e seta na mesma linha */
+        justify-content: space-between; /* Texto à esquerda, seta à direita */
+        align-items: center;   /* Alinhados no meio */
+        padding: 12px 16px;    /* Espaço interno */
+        border-bottom: 1px solid #e3e3e3; /* Linha fina entre os avisos */
+        color: #222222;        /* Texto quase preto */
+        text-decoration: none; /* Sem sublinhado */
     }
-    .atencao a:last-child { border-bottom: 0; }
-    .atencao a:hover { background: var(--suave); }
-    .atencao i, .suspenso i { color: var(--laranja); }
+    .atencao a:last-child { border-bottom: 0; } /* Último aviso sem linha embaixo */
+    .atencao a:hover { background: var(--suave); } /* Mouse por cima: fundo cinza claro */
+    .atencao i { color: var(--laranja); } /* A setinha é laranja */
 
     /* ---------- Telas menores ---------- */
-    @media (max-width: 1100px) { .grade { grid-template-columns: 1fr; } }
-    @media (max-width: 800px) { .data-hoje, .usuario-texto { display: none; } }
-}
+    @media (max-width: 1100px) { .grade { grid-template-columns: 1fr; } } /* @media = "só aplique se...". Em telas de até 1100px de largura, as duas colunas viram uma só (1fr) */
+    @media (max-width: 800px) { .usuario-texto { display: none; } } /* Em telas de até 800px, esconde nome e empresa e deixa só o avatar */
+} /* Fecha o bloco .pag-inicio */
