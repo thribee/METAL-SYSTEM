@@ -14,36 +14,36 @@
 
 <body>
     <nav class="sidebar">
-        <img src="img/logo.png" alt="Logotipo">
+        <img src="img/logotipo.png" alt="Logotipo">
         <ul class="list">
             <li>
-                <a href="inicio.html">
+                <a href="#">
                     <i class="bi bi-house-door icons"></i>
                     Início
                 </a>
             </li>
             <p class="word">Operacional</p>
             <li>
-                <a href="clientes.html">
+                <a href="#">
                     <i class="bi bi-people icons"></i>
                     Clientes
                 </a>
             </li>
             <li>
-                <a href="orcamentos.html">
+                <a href="#">
                     <i class="bi bi-file-earmark-spreadsheet icons"></i>
                     Orçamentos
                 </a>
             </li>
             <li>
-                <a href="documentos.html">
+                <a href="#">
                     <i class="bi bi-file-earmark-text icons"></i>
                     Documentos
                 </a>
             </li>
             <p class="word">Financeiro</p>
             <li>
-                <a href="entradas_saidas.html">
+                <a href="#">
                     <i class="bi bi-file-earmark-diff icons"></i>
                     Entradas e Saídas
                 </a>
@@ -62,13 +62,14 @@
             </li>
             <li class="divisor"></li>
             <li>
-                <a href="index.html">
+                <a href="#">
                     <i class="bi bi-box-arrow-right icons"></i>
                     Sair
                 </a>
             </li>
         </ul>
     </nav>
+
     <main>
         <header>
             <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search" />
@@ -116,27 +117,31 @@
                     <div class="filtro-button">
                         <span class="title-filtro">Exibir</span>
                         <div class="filtro-data-button">
-                            <button class="button-style active" data-filter="todos">Todos</button>
-                            <button class="button-style" data-filter="salarios">Salários</button>
-                            <button class="button-style" data-filter="despesas">Desp. mensais</button>
-                            <button class="button-style" data-filter="maquinas">Máquinas</button>
+                            <button class="button-style active" onclick="filtrarCategoria('todos', this)">Todos</button>
+                            <button class="button-style" onclick="filtrarCategoria('salarios', this)">Salários</button>
+                            <button class="button-style" onclick="filtrarCategoria('despesas', this)">Desp. mensais</button>
+                            <button class="button-style" onclick="filtrarCategoria('maquinas', this)">Máquinas</button>
                         </div>
                     </div>
+
                     <div class="filtro-data-button">
                         <div class="filtro-button">
                             <span class="title-filtro">De</span>
-                            <input type="date" class="button-style" id="data-comeco">
+                            <input type="date" id="dataInicio" class="button-style"
+                                onchange="filtrarTabela()">
                         </div>
                         <div class="filtro-button">
                             <span class="title-filtro">Até</span>
-                            <input type="date" class="button-style" id="data-fim">
+                            <input type="date" id="dataFim" class="button-style"
+                                onchange="filtrarTabela()">
                         </div>
                         <div class="filtro-button">
                             <span class="title-filtro" style="visibility: hidden;">Ação</span>
-                            <button class="button-style" id="limpar-filtro">Limpar filtros</button>
+                            <button class="button-style" onclick="limparFiltros()">Limpar filtros</button>
                         </div>
                     </div>
                 </div>
+
                 <div class="conteudo-relatorio">
                     <div class="conteudo-lista-relatorio">
                         <table class="conteudo-tabela">
@@ -144,65 +149,65 @@
                                 <tr>
                                     <th style="width: 25%;">Categoria</th>
                                     <th style="width: 30%;">Item</th>
-                                    <th class="alinhar-texto" width: 15%;">Lanç.</th>
+                                    <th class="alinhar-texto" width: 15%;">Data</th>
                                     <th class="alinhar-texto" width: 18%;">Valor</th>
                                     <th class="alinhar-texto" width: 12%;">%</th>
                                 </tr>
                             </thead>
                             <tbody class="corpo-tabela">
-                                <tr>
+                                <tr data-categoria="salarios" data-data="2026-10-01" data-valor="15600.00">
                                     <td><span class="table-status table-status-salario">Salários</span></td>
                                     <td>Folha de pagamento</td>
-                                    <td class="alinhar-texto">4</td>
+                                    <td class="alinhar-texto">01/10/2026</td>
                                     <td class="alinhar-texto">R$ 15.600,00</td>
                                     <td class="alinhar-texto">0%</td>
                                 </tr>
-                                <tr>
+                                <tr data-categoria="salarios" data-data="2026-10-05" data-valor="2400.00">
                                     <td><span class="table-status table-status-salario">Salários</span></td>
                                     <td>Adiantamentos</td>
-                                    <td class="alinhar-texto">3</td>
+                                    <td class="alinhar-texto">05/10/2026</td>
                                     <td class="alinhar-texto">R$ 2.400,00</td>
                                     <td class="alinhar-texto">0%</td>
                                 </tr>
-                                <tr>
+                                <tr data-categoria="despesas" data-data="2026-10-10" data-valor="2800.00">
                                     <td><span class="table-status table-status-despesa">Desp. mensais</span></td>
                                     <td>Aluguel do galpão</td>
-                                    <td class="alinhar-texto">1</td>
+                                    <td class="alinhar-texto">10/10/2026</td>
                                     <td class="alinhar-texto">R$ 2.800,00</td>
                                     <td class="alinhar-texto">0%</td>
                                 </tr>
-                                <tr>
+                                <tr data-categoria="despesas" data-data="2026-10-12" data-valor="1650.00">
                                     <td><span class="table-status table-status-despesa">Desp. mensais</span></td>
                                     <td>Conta de energia</td>
-                                    <td class="alinhar-texto">1</td>
+                                    <td class="alinhar-texto">12/10/2026</td>
                                     <td class="alinhar-texto">R$ 1.650,00</td>
                                     <td class="alinhar-texto">0%</td>
                                 </tr>
-                                <tr>
+                                <tr data-categoria="despesas" data-data="2026-10-15" data-valor="380.00">
                                     <td><span class="table-status table-status-despesa">Desp. mensais</span></td>
                                     <td>Conta de água</td>
-                                    <td class="alinhar-texto">1</td>
+                                    <td class="alinhar-texto">15/10/2026</td>
                                     <td class="alinhar-texto">R$ 380,00</td>
                                     <td class="alinhar-texto">0%</td>
                                 </tr>
-                                <tr>
+                                <tr data-categoria="despesas" data-data="2026-10-18" data-valor="520.00">
                                     <td><span class="table-status table-status-despesa">Desp. mensais</span></td>
                                     <td>Internet / telefone</td>
-                                    <td class="alinhar-texto">1</td>
+                                    <td class="alinhar-texto">18/10/2026</td>
                                     <td class="alinhar-texto">R$ 520,00</td>
                                     <td class="alinhar-texto">0%</td>
                                 </tr>
-                                <tr>
+                                <tr data-categoria="maquinas" data-data="2026-10-22" data-valor="2300.00">
                                     <td><span class="table-status table-status-maquina">Máquinas</span></td>
                                     <td>Eletrodos e insumos</td>
-                                    <td class="alinhar-texto">6</td>
+                                    <td class="alinhar-texto">22/10/2026</td>
                                     <td class="alinhar-texto">R$ 2.300,00</td>
                                     <td class="alinhar-texto">0%</td>
                                 </tr>
-                                <tr>
+                                <tr data-categoria="maquinas" data-data="2026-10-25" data-valor="5200.00">
                                     <td><span class="table-status table-status-maquina">Máquinas</span></td>
                                     <td>Manutenção corretiva</td>
-                                    <td class="alinhar-texto">3</td>
+                                    <td class="alinhar-texto">25/10/2026</td>
                                     <td class="alinhar-texto">R$ 5.200,00</td>
                                     <td class="alinhar-texto">0%</td>
                                 </tr>
@@ -211,8 +216,8 @@
                                 <tr>
                                     <td>Total do período</td>
                                     <td></td>
-                                    <td class="alinhar-texto">0</td>
-                                    <td class="alinhar-texto">R$ 0,00</td>
+                                    <td class="alinhar-texto">dd/mm/aaaa</td>
+                                    <td id="totalPeriodoValor" class="alinhar-texto">R$ 31.850,00</td>
                                     <td class="alinhar-texto">100%</td>
                                 </tr>
                             </tfoot>
@@ -228,7 +233,8 @@
                                         <span class="rotulo">R$ 18.000,00</span>
                                     </div>
                                     <div class="fundo-linha">
-                                        <div class="barra-horizontal" style="background-color: #ff7800; width: 85%;"></div>
+                                        <div class="barra-horizontal" style="background-color: #ff7800; width: 85%;">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="barra-grupo">
@@ -237,7 +243,8 @@
                                         <span class="rotulo">R$ 6.350,00</span>
                                     </div>
                                     <div class="fundo-linha">
-                                        <div class="barra-horizontal" style="background-color: #9e9e9e; width: 60%;"></div>
+                                        <div class="barra-horizontal" style="background-color: #9e9e9e; width: 60%;">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="barra-grupo">
@@ -246,7 +253,8 @@
                                         <span class="rotulo">R$ 7.000,00</span>
                                     </div>
                                     <div class="fundo-linha">
-                                        <div class="barra-horizontal" style="background-color: #009ebf; width: 40%;"></div>
+                                        <div class="barra-horizontal" style="background-color: #009ebf; width: 40%;">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -254,7 +262,7 @@
                         <div class="card-maior-gasto">
                             <div>
                                 <span class="titulo-card-maior-gasto">Maior gasto do período</span>
-                                <span class="titulo-tipo-gasto">Folha de pagamento</span>
+                                <span id="maior-gasto" class="titulo-tipo-gasto">Folha de pagamento</span>
                             </div>
                         </div>
                     </div>
@@ -262,10 +270,11 @@
             </section>
         </section>
     </main>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
-    <script src="js/relatorio.js"></script>
+        <script src="js/relatorio.js"></script>
     <script src="js/script.js"></script>
 </body>
 
