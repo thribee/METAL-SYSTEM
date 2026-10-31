@@ -1,6 +1,6 @@
 /* ================= VARIÁVEIS: o "painel de controle" do arquivo ================= */
 :root { /* ":root" é a raiz da página. Variáveis guardadas aqui valem para o arquivo todo */
-  --fundo-pagina: #000000;      /* Cor de fundo atrás do cartão. Cores usam hexadecimal: #RRGGBB (vermelho, verde, azul). #000000 = preto */
+  --fundo-pagina: #000000;      /* Cor de fundo atrás do cartão (só aparece se o cartão não cobrir a janela). #RRGGBB: #000000 = preto */
   --fundo-painel: #17181a;      /* Cinza muito escuro do painel do formulário */
   --laranja: #F97316;           /* Laranja da marca (botão Entrar e detalhes) */
   --laranja-hover: #EA6A0A;     /* Laranja um pouco mais escuro, usado quando o mouse passa por cima do botão */
@@ -10,16 +10,13 @@
   --borda-campo: #33363a;       /* Cor da borda dessas caixas */
   --erro: #F87171;              /* Vermelho claro da mensagem de erro */
 
-  --largura-cartao: 1100px;     /* Largura máxima do cartão. Aumente ou diminua para mudar o tamanho */
-  --altura-cartao: 700px;       /* Altura máxima do cartão */
-  --alt: min(90vh, var(--altura-cartao)); /* min() escolhe o MENOR valor: 90% da altura da janela (vh) ou 700px. Assim o cartão nunca passa da janela */
+  --largura-imagem: 40%;        /* Parte da largura do cartão ocupada pela foto. O painel fica com o resto (60%) */
+  --largura-form: 400px;        /* Largura máxima do formulário */
+  --logo-largura: 200px;        /* Largura do logo */
+  --tam-titulo: 32px;           /* Tamanho da letra do título "Bem-vindo!" */
 
-  --largura-form: 340px;        /* Largura máxima do formulário */
-  --logo-largura: 170px;        /* Largura do logo */
-  --tam-titulo: 28px;           /* Tamanho da letra do título "Bem-vindo!" */
-
-  --fonte: 'Inter', sans-serif; /* Fonte do texto. sans-serif é a reserva caso a Inter não carregue */
-  --fonte-titulo: 'Inter', sans-serif; /* Fonte dos títulos. Separada para você trocar só ela se o Figma usar outra */
+  --fonte: 'Outfit', sans-serif; /* Fonte do texto. Precisa estar carregada no <head> do HTML (Google Fonts). sans-serif é a reserva se falhar */
+  --fonte-titulo: 'Outfit', sans-serif; /* Fonte dos títulos. Separada para você trocar só ela se o Figma usar outra */
   --raio: 0;                    /* Arredondamento dos cantos. 0 = cantos retos, como no projeto */
 } /* Fim das variáveis */
 
@@ -29,8 +26,6 @@
 body { /* Estilo do corpo da página */
   height: 100vh;                /* 100vh = a altura inteira da janela. Garante que a página não tenha barra de rolagem */
   display: flex;                /* Liga o "flexbox": um jeito de organizar elementos filhos em linha ou coluna */
-  align-items: center;          /* Centraliza o cartão na VERTICAL */
-  justify-content: center;      /* Centraliza o cartão na HORIZONTAL */
   background: var(--fundo-pagina); /* Pinta o fundo usando a variável. var(--nome) lê o valor guardado */
   color: var(--texto);          /* Cor padrão de todo o texto da página */
   font-family: var(--fonte);    /* Fonte padrão da página */
@@ -40,23 +35,23 @@ body { /* Estilo do corpo da página */
 /* ================= CARTÃO (foto + painel lado a lado) ================= */
 .login { /* O ponto "." significa "elemento com class=login" */
   display: flex;                /* Coloca os dois filhos (foto e painel) lado a lado */
-  width: min(92vw, var(--largura-cartao)); /* Largura = o MENOR entre 92% da largura da janela (vw) e 1100px */
-  height: var(--alt);           /* Altura fixa do cartão, definida lá nas variáveis */
+  width: 100%;                  /* Largura = a janela inteira, em qualquer tamanho de monitor */
+  height: 100vh;                /* Altura = a janela inteira */
   overflow: hidden;             /* Corta qualquer coisa que passe das bordas do cartão */
 } /* Fim do cartão */
 
 /* ================= PARTE 1: FOTO ================= */
 .login__imagem { /* Coluna da foto */
   position: relative;           /* Vira ponto de referência para o degradê (::after) ficar posicionado em cima dela */
-  flex: 0 0 auto;               /* Não cresce (0), não encolhe (0) e usa o tamanho natural (auto): a largura vem da própria foto */
+  flex: 0 0 var(--largura-imagem); /* Não cresce (0), não encolhe (0) e ocupa 40% da largura: é isso que define o 40/60 */
 } /* Fim da coluna da foto */
 
 .login__imagem img { /* A foto em si */
   display: block;               /* Imagens têm um espacinho extra embaixo por padrão. block remove isso */
-  height: var(--alt);           /* A foto ocupa a altura toda do cartão... */
-  width: auto;                  /* ...e a largura se calcula sozinha, mantendo a proporção: não corta nem estica */
-  max-width: 50vw;              /* Segurança: a foto nunca passa de metade da largura da janela */
-  object-fit: cover;            /* Se for limitada pelo max-width, ela preenche sem distorcer (cortando só as sobras) */
+  width: 100%;                  /* A foto preenche toda a largura da coluna (40%)... */
+  height: 100vh;                /* ...e toda a altura da janela */
+  object-fit: cover;            /* Se a proporção da foto não bater com a da coluna, ela preenche sem distorcer, cortando as sobras */
+  object-position: center 0%;   /* Qual parte da foto fica visível: centro na horizontal e TOPO na vertical (0%). Use 50% para o meio, 100% para a base */
 } /* Fim da foto */
 
 .login__imagem::after { /* "::after" cria uma camada extra por cima da foto, sem precisar de HTML. É a "sombra" */
@@ -69,7 +64,7 @@ body { /* Estilo do corpo da página */
 
 /* ================= PARTE 2: PAINEL ================= */
 .login__painel { /* Painel escuro que guarda logo e formulário */
-  flex: 1;                      /* Ocupa TODO o espaço que a foto não usou */
+  flex: 1;                      /* Ocupa TODO o espaço que a foto não usou (os 60% restantes) */
   min-width: 0;                 /* Permite o painel encolher em telas pequenas sem estourar */
   display: flex;                /* Liga o flexbox também aqui, para organizar logo e formulário */
   flex-direction: column;       /* Empilha os filhos de cima para baixo (logo em cima, formulário embaixo) */
@@ -100,7 +95,7 @@ body { /* Estilo do corpo da página */
 /* ----- Formulário ----- */
 .login__form { /* Caixa do formulário */
   width: 100%;                  /* Ocupa toda a largura disponível... */
-  max-width: var(--largura-form); /* ...mas nunca mais que 340px */
+  max-width: var(--largura-form); /* ...mas nunca mais que o valor da variável (400px) */
 } /* Fim do formulário */
 
 .login__titulo { /* "Bem-vindo!" */
