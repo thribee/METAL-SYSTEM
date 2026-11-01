@@ -1,0 +1,48 @@
+
+# IntelliJ IDEA e VS Code
+.idea/
+*.iml
+.vscode/
+
+# Maven e Java
+**/target/
+*.class
+*.log
+
+# Variáveis e credenciais
+.env
+.env.*
+!.env.example
+application-local.properties
+application-local.yml
+application-local.yaml
+
+# Banco H2 local
+*.mv.db
+*.trace.db
+*.h2.db
+
+# Arquivos temporários
+*.tmp
+*.bak
+.DS_Store
+Thumbs.db
+
+# Uploads e documentos enviados
+uploads/
+**/uploads/
+
+# Arquivos compactados
+*.zip
+
+# Documentos enviados pelo sistema
+**/data/anexos/
+
+# Pasta de dados locais do backend
+/backend/data/
+/Backend/data/
+
+# Arquivos de banco SQLite
+*.sqlite
+*.sqlite3
+*.db
