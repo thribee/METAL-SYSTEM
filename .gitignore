@@ -1,0 +1,18 @@
+# Senhas e configuracoes privadas
+.env
+.env.*
+
+# Permitir exemplo sem senhas reais
+!.env.example
+
+# Ambiente Python
+.venv/
+__pycache__/
+*.pyc
+
+# Backups com dados reais
+backup.sql
+backups/
+
+# Arquivos locais
+.DS_Store
