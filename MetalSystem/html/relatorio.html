@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/relatorio.css">
 <link rel="stylesheet" href="../js/financeiro-ui.css">
+<link rel="stylesheet" href="../css/inicio.css">
 <script>if(!sessionStorage.getItem("metal_auth"))window.location.replace("index.html");</script>
 </head>
 
@@ -74,7 +75,20 @@
 
     <main>
         <header>
-            <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search" />
+            <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search" /> 
+
+            <div class="menu-suspenso"> 
+                <button class="usuario" id="btnUsuario" aria-label="Menu do usuário"> 
+                    <span class="avatar-usuario" id="avatar"></span> 
+                    <span class="usuario-texto"> 
+                        <strong id="nomeUsuario"></strong> 
+                        <small id="empresaUsuario"></small> 
+                    </span> 
+                </button> 
+                <div class="suspenso" id="menuUsuario" hidden> 
+                    <a href="#">Alterar senha</a> 
+                </div> 
+            </div> 
         </header>
         <h1 class="main-title">Relatório</h1>
         <section class="content">

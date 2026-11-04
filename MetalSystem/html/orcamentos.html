@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/orcamentos.css">
+    <link rel="stylesheet" href="../css/inicio.css">
 <script>if(!sessionStorage.getItem("metal_auth"))window.location.replace("index.html");</script>
 </head>
 
@@ -73,14 +74,20 @@
 
     <main>
         <header>
-            <input type="search" class="form-control" placeholder="Pesquisar no sistema...">
-            <div class="usuario">
-                <div class="avatar-usuario">E</div>
-                <div>
-                    <p>Elias</p>
-                    <p>Serralheria do Elias</p>
-                </div>
-            </div>
+            <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search" /> 
+
+            <div class="menu-suspenso"> 
+                <button class="usuario" id="btnUsuario" aria-label="Menu do usuário"> 
+                    <span class="avatar-usuario" id="avatar"></span> 
+                    <span class="usuario-texto"> 
+                        <strong id="nomeUsuario"></strong> 
+                        <small id="empresaUsuario"></small> 
+                    </span> 
+                </button> 
+                <div class="suspenso" id="menuUsuario" hidden> 
+                    <a href="#">Alterar senha</a> 
+                </div> 
+            </div> 
         </header>
 
         <div id="tela-lista">
